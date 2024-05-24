@@ -16,12 +16,17 @@ public void createSale() {
 public void makePayment(double amount) {
 	SaleContainer sC = SaleContainer.getInstance();
 	
-	s.calculateChange(amount);
+	s.setAmountPaid(amount);
+	
+	double change = amount - s.getTotalPrice(); 
+	
+	s.setChangeAmount(change);
 	
 	sC.addSaleToSaleContainer(s);
 }
 
-public void addProduct(int quantity, int barcode) {
+//
+ void addProduct(int quantity, int barcode) {
 	
 	ProductController pC = new ProductController(); 	
 	Product p = pC.findProductByBarcode(barcode);
