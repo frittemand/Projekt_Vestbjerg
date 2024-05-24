@@ -46,6 +46,7 @@ public void calculateChange(double amount) {
 	for(Orderline l : orderlines ) {
 		newTotalPrice = l.getLinePrice()+newTotalPrice;
 	}
+	amountPaid = amount; 
 	totalPrice = newTotalPrice; 
 	changeAmount = amount - totalPrice;
 }
