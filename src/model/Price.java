@@ -8,6 +8,7 @@ private LocalDate dateFrom;
 
 private Price(double value) {
 	this.value = value;
+	this.dateFrom =LocalDate.now();
 }
 
 public double getValue() {
