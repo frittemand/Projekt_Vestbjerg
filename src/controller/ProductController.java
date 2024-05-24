@@ -25,7 +25,5 @@ public class ProductController {
 	public void updateStockCount(int quantity, Product product) {
 		ProductContainer pC = ProductContainer.getInstance();
 		pC.updateStockCount(quantity, product);
-	   
-	  }
-	 
+}
 }
