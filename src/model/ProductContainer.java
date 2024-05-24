@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import model.Product;
 
 public class ProductContainer {
-	private ArrayList<Product> products = new ArrayList();
+	private ArrayList<Product> products = new ArrayList<>();
 	private static ProductContainer INSTANCE;
 	
 	private ProductContainer(){
