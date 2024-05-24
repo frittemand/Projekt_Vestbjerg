@@ -6,7 +6,7 @@ public class Price {
 private double value;
 private LocalDate dateFrom;
 
-private Price(double value) {
+public Price(double value) {
 	this.value = value;
 	this.dateFrom =LocalDate.now();
 }
