@@ -41,13 +41,13 @@ public double getAmountPaid() {
 public void setAmountPaid(double amountPaid) {
 	this.amountPaid = amountPaid;
 }
-public void calculateChange() {
+public void calculateChange(double amount) {
 	double newTotalPrice = 0; 
 	for(Orderline l : orderlines ) {
 		newTotalPrice = l.getLinePrice()+newTotalPrice;
-		
 	}
 	totalPrice = newTotalPrice; 
+	changeAmount = amount - totalPrice;
 }
 
 }
