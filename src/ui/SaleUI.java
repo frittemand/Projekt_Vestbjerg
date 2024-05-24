@@ -5,6 +5,12 @@ import controller.SaleController;
 
 public class SaleUI {
 	
+	private SaleController sc;
+	
+	public SaleUI() {
+		sc = new SaleController();
+	}
+	
 	public void start() {
 		saleMenu();
 	}
@@ -19,11 +25,11 @@ public class SaleUI {
 				break;
 			
 			case 2:
-				addProduct(choice, choice);
+				addProduct();
 				break;
 			
 			case 3:
-				makePayment(choice);
+				makePayment();
 				break;
 			
 			case 0:
@@ -33,8 +39,7 @@ public class SaleUI {
 			
 			default:
 				System.out.println("Not valid input.");
-		}
-		
+		}	
 	}
 	}
 
@@ -51,8 +56,7 @@ public class SaleUI {
 
 	}
 
-	public void createSale() {
-		SaleController sc = new SaleController();
+	public void createSale() {		
 		sc.createSale();
 	}
 	
@@ -60,14 +64,19 @@ public class SaleUI {
 		System.out.print("Null");
 	}
 	
-	public void addProduct(int quantity, int barcode) {
-		SaleController sc = new SaleController();
-		sc.addProduct(barcode);
+	public void addProduct() {
+		Scanner keyboard = new Scanner (System.in);
+		int barcode = getIntegerFromUser(keyboard);
+		int quantity = getIntegerFromUser(keyboard);
+		
+		sc.addProduct(barcode, quantity);
 		
 	}
 	
-	public void makePayment(double amount);
-		SaleController sc = new SaleController();
+	public void makePayment() {
+	}
+		Scanner keyboard = new Scanner (System.in);
+		double amount = getDoubleFromUser(keyboard);
 		sc.makePayment(amount);
 	}
 
@@ -77,4 +86,12 @@ public class SaleUI {
         keyboard.nextLine();
     }
     return keyboard.nextInt();
+	}
+    private double getDoubleFromUser(Scanner keyboard) {
+        while (!keyboard.hasNextDouble()) {
+            System.out.println("Invalid input.");
+            keyboard.nextLine();
+        }
+        return keyboard.nextDouble();
+    }
 }
