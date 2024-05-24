@@ -3,9 +3,9 @@ import java.util.Stack;
 
 public class Product {
 
-Stack<Price> basePriceLog;
-Stack<Price> currentPriceLog;
-Stack<Price> purchasePriceLog;
+private Stack<Price> basePriceLog;
+private Stack<Price> currentPriceLog;
+private Stack<Price> purchasePriceLog;
 private int stockCount;
 private String locationNumber;
 private int barcode;
@@ -20,9 +20,9 @@ private int minStock;
 
 public Product(int barcode, int stockCount, String locationNumber, double newBasePrice, double newCurrentPrice, double newPurchasePrice, String description, String itemName,int maxStock, int minStock)
 {
-	Stack<Price> basePriceLog = new Stack<>();
-	Stack<Price> currentPriceLog = new Stack<>();
-	Stack<Price> purchasePriceLog = new Stack<>();
+	basePriceLog = new Stack<>();
+	currentPriceLog = new Stack<>();
+	purchasePriceLog = new Stack<>();
 	this.barcode = barcode;
 	this.stockCount = stockCount;
 	this.locationNumber = locationNumber;
@@ -90,7 +90,5 @@ public int getMinStock() {
 public void setStockCount(int newStockCount) {
 	stockCount = newStockCount;
 }
-	
-	
-	
+
 }
