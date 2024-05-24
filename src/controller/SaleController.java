@@ -23,7 +23,7 @@ public void makePayment(double amount) {
 
 public void addProduct(int quantity, int barcode) {
 	
-	ProductController pC = new ProductController(); 
+	ProductController pC = new ProductController(); 	
 	Product p = pC.findProductByBarcode(barcode);
 	
 	o = new Orderline(quantity, p);
@@ -31,6 +31,9 @@ public void addProduct(int quantity, int barcode) {
 	s.addOrderline(o);
 	
 	pC.updateStockCount(quantity, p);
+	
+	double total = o.getLinePrice() + s.getTotalPrice();
+	s.setTotalPrice(total);
 }
 
 
