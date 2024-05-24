@@ -23,5 +23,4 @@ public void addSaleToSaleContainer(Sale s) {
 }
 
 
-
 }
