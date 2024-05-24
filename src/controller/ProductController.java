@@ -14,14 +14,17 @@ public class ProductController {
 	private ProductContainer productContainer;
 	
 	public ProductController() {
-		productContainer = ProductContainer.getInstance()
+		productContainer = ProductContainer.getInstance();
 	}
 
 	public Product findProductByBarcode(int barcode) {
 		return productContainer.findProductByBarcode(barcode);
 	}
 	
-	public void updateStockCount(int o.quantity, o.product) {
-		
-	}
+	/*
+	 * public void updateStockCount(int o.quantity, o.product) {
+	 * 
+	 * }
+	 */
+
 }
