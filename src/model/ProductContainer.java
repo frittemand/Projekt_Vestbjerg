@@ -15,4 +15,12 @@ public class ProductContainer {
 		}
 		return INSTANCE;
 	}
+	
+	public void addProduct(Product product) {
+		if (product == null) {
+			System.out.print("No product added. Please select a product");
+		} else {
+			products.add(product);
+		}
+	}
 }
