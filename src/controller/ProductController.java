@@ -22,8 +22,8 @@ public class ProductController {
 	}
 	
 	
-	public void updateStockCount(int o.quantity, Product o.product) {
-	   return null;
+	public void updateStockCount(int quantity, Product product) {
+	   
 	  }
 	 
 }
