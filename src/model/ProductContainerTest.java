@@ -18,10 +18,11 @@ class ProductContainerTest {
 	@Test
 	void findProductByBarcode(int i) {
 		//Arrange
-		int barcode = 12345;
 		Product expectedProduct = new Product (12345,10,"Hylde 1, række 1",10,11,8,"Dette er en hammer","hammer",100,10 );
+		
 		//Act
-		Product result = productContainer.findProductByBarcode(12345);
+		int barcode = 12345;
+		Product result = productContainer.findProductByBarcode(barcode);
 		
 		//Assert
 		assertEquals(expectedProduct, result);
