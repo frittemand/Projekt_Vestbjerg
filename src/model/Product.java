@@ -15,23 +15,37 @@ private String itemName;
 private String description;
 private int maxStock;
 private int minStock;
+private Price price1;
+private Price price2;
+private Price price3;
 
-public Product(int barcode, int stockCount, String locationNumber, double basePrice,double currentPrice, double purchasePrice, String description, String itemName,int maxStock, int minStock)
+public Product(int barcode, int stockCount, String locationNumber, double newBasePrice, double newCurrentPrice, double newPurchasePrice, String description, String itemName,int maxStock, int minStock)
 {
+	Stack<Price> basePriceLog = new Stack<>();
+	Stack<Price> currentPriceLog = new Stack<>();
+	Stack<Price> purchasePriceLog = new Stack<>();
 	this.barcode = barcode;
 	this.stockCount = stockCount;
 	this.locationNumber = locationNumber;
-	this.basePrice = basePrice;
-	this.currentPrice = currentPrice;
-	this.purchasePrice = purchasePrice;
 	this.description = description;
 	this.itemName = itemName;
 	this.maxStock = maxStock;
 	this.minStock = minStock;
+	
+	
+	this.price1 = new Price(newBasePrice);
+	basePriceLog.push(price1);
+	
+	this.price2 =  new Price(newCurrentPrice);
+	currentPriceLog.push(price2);
+	
+	this.price3 = new Price(newPurchasePrice);
+	purchasePriceLog.push(price3);
+	
+	basePrice = basePriceLog.peek().getValue();
+	currentPrice = currentPriceLog.peek().getValue();
+	purchasePrice = purchasePriceLog.peek().getValue();
 
-	Stack<Price> basePriceLog = new Stack<>();
-	Stack<Price> currentPriceLog = new Stack<>();
-	Stack<Price> purchasePriceLog = new Stack<>();
 }
 
 public int getStockCount() {
