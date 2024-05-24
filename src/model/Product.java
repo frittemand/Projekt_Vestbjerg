@@ -1,10 +1,10 @@
 package model;
-
+import java.util.Stack;
 public class Product {
 
-	
-	
-
+Stack<Price> basePriceLog;
+Stack<Price> currentPriceLog;
+Stack<Price> purchasePriceLog;
 private int stockCount;
 private String locationNumber;
 private int barcode;
@@ -28,6 +28,10 @@ public Product(int barcode, int stockCount, String locationNumber, double basePr
 	this.itemName = itemName;
 	this.maxStock = maxStock;
 	this.minStock = minStock;
+
+	Stack<Price> basePriceLog = new Stack<>();
+	Stack<Price> currentPriceLog = new Stack<>();
+	Stack<Price> purchasePriceLog = new Stack<>();
 }
 
 public int getStockCount() {
