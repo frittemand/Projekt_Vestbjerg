@@ -5,26 +5,27 @@ package controller;
 
 import model.Product;
 import model.ProductContainer;
+import model.SaleContainer;
 
 /**
  * 
  */
 public class ProductController {
 
-	private ProductContainer productContainer;
 	
 	public ProductController() {
-		productContainer = ProductContainer.getInstance();
 	}
 
 	public Product findProductByBarcode(int barcode) {
-		return productContainer.findProductByBarcode(barcode);
+		ProductContainer pC = ProductContainer.getInstance();
+		return pC.findProductByBarcode(barcode);
 	}
 	
-	/*
-	 * public void updateStockCount(int o.quantity, o.product) {
-	 * 
-	 * }
-	 */
-
+	
+	public void updateStockCount(int quantity, Product product) {
+		ProductContainer pC = ProductContainer.getInstance();
+		pC.updateStockCount(quantity, product);
+	   
+	  }
+	 
 }

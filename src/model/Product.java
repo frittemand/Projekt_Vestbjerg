@@ -1,4 +1,5 @@
 package model;
+import java.time.LocalDate;
 import java.util.Stack;
 
 public class Product {
@@ -85,6 +86,58 @@ public int getMaxStock() {
 
 public int getMinStock() {
 	return minStock;
+}
+
+
+public double getBasePrice(LocalDate date) {
+	Stack<Price> tempStack = new Stack<>();
+	Price pr = basePriceLog.pop();;
+	Price lastPrice = null;
+	while(!basePriceLog.isEmpty()) {
+		if(pr.getDateFrom().compareTo(date) >= 0) {
+			lastPrice = pr;
+		}
+		else {
+		while(!tempStack.isEmpty()) {
+			basePriceLog.push(tempStack.pop());
+		}
+		}
+	}
+	return lastPrice.getValue();
+}
+
+public double getCurrentPrice(LocalDate date) {
+	Stack<Price> tempStack = new Stack<>();
+	Price pr = currentPriceLog.pop();;
+	Price lastPrice = null;
+	while(!currentPriceLog.isEmpty()) {
+		if(pr.getDateFrom().compareTo(date) >= 0) {
+			lastPrice = pr;
+		}
+		else {
+		while(!tempStack.isEmpty()) {
+			currentPriceLog.push(tempStack.pop());
+		}
+		}
+	}
+	return lastPrice.getValue();
+}
+
+public double getPurchasePrice(LocalDate date) {
+	Stack<Price> tempStack = new Stack<>();
+	Price pr = purchasePriceLog.pop();;
+	Price lastPrice = null;
+	while(!purchasePriceLog.isEmpty()) {
+		if(pr.getDateFrom().compareTo(date) >= 0) {
+			lastPrice = pr;
+		}
+		else {
+		while(!tempStack.isEmpty()) {
+			purchasePriceLog.push(tempStack.pop());
+		}
+		}
+	}
+	return lastPrice.getValue();
 }
 
 public void setStockCount(int newStockCount) {
