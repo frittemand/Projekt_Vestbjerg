@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import model.Product;
 
 public class ProductContainer {
 	private ArrayList<Product> products = new ArrayList<>();
@@ -27,7 +28,7 @@ public class ProductContainer {
 	public Product findProductByBarcode(int barcode) {
 		for (Product product : products) {
 			if (product.getBarcode() == barcode) {
-				return Product;				
+				return product;				
 			}else {
 				System.out.println("The scanned product doesn't not exist");
 				return null;
