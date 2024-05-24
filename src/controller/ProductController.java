@@ -21,10 +21,9 @@ public class ProductController {
 		return productContainer.findProductByBarcode(barcode);
 	}
 	
-	/*
-	 * public void updateStockCount(int o.quantity, o.product) {
-	 * 
-	 * }
-	 */
-
+	
+	public void updateStockCount(int o.quantity, Product o.product) {
+	   return null;
+	  }
+	 
 }
