@@ -13,8 +13,8 @@ private double amountPaid;
 public Sale(){
 this.salesDate = LocalDate.now();
 this.salesID = salesID++;
-this.setChangeAmount(0); 
-this.setAmountPaid(0); 
+this.changeAmount = 0; 
+this.amountPaid = 0; 
 orderlines = new ArrayList<>(); 
 }
 public void addOrderline(Orderline o) {
