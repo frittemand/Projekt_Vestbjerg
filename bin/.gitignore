@@ -1,3 +1,5 @@
-/model/
+/.classpath
+/.project
 /controller/
+/model/
 /ui/
