@@ -22,6 +22,7 @@ public void addOrderline(Orderline o) {
 	orderlines.add(o); 
 }
 	}
+
 public double getTotalPrice() {
 	return totalPrice;
 }
@@ -39,6 +40,14 @@ public double getAmountPaid() {
 }
 public void setAmountPaid(double amountPaid) {
 	this.amountPaid = amountPaid;
+}
+public void calculateChange() {
+	double newTotalPrice = 0; 
+	for(Orderline l : orderlines ) {
+		newTotalPrice = l.getLinePrice()+newTotalPrice;
+		
+	}
+	totalPrice = newTotalPrice; 
 }
 
 }
