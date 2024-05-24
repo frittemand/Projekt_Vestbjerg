@@ -1,5 +1,6 @@
 package model;
 import java.util.Stack;
+
 public class Product {
 
 Stack<Price> basePriceLog;
@@ -15,9 +16,7 @@ private String itemName;
 private String description;
 private int maxStock;
 private int minStock;
-private Price price1;
-private Price price2;
-private Price price3;
+
 
 public Product(int barcode, int stockCount, String locationNumber, double newBasePrice, double newCurrentPrice, double newPurchasePrice, String description, String itemName,int maxStock, int minStock)
 {
@@ -33,14 +32,14 @@ public Product(int barcode, int stockCount, String locationNumber, double newBas
 	this.minStock = minStock;
 	
 	
-	this.price1 = new Price(newBasePrice);
-	basePriceLog.push(price1);
+	Price pr1 = new Price(newBasePrice);
+	basePriceLog.push(pr1);
 	
-	this.price2 =  new Price(newCurrentPrice);
-	currentPriceLog.push(price2);
+	Price pr2 =  new Price(newCurrentPrice);
+	currentPriceLog.push(pr2);
 	
-	this.price3 = new Price(newPurchasePrice);
-	purchasePriceLog.push(price3);
+	Price pr3 = new Price(newPurchasePrice);
+	purchasePriceLog.push(pr3);
 	
 	basePrice = basePriceLog.peek().getValue();
 	currentPrice = currentPriceLog.peek().getValue();
