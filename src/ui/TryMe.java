@@ -9,5 +9,4 @@ Product p3 = new Product (32345,10,"Hylde 1, række 3",15,11,8,"Dette er en hamm
 Product p4 = new Product (42345,10,"Hylde 1, række 4",15,11,8,"Dette er en hammer","hammer",100,10 );
 Product p5 = new Product (52345,10,"Hylde 1, række 5",11,11,8,"Dette er en hammer","hammer",100,10 );
 }
-int barcode, int stockCount, String locationNumber, double basePrice,double currentPrice, double purchasePrice, String description, String itemName,int maxStock, int minStock
-}
+
