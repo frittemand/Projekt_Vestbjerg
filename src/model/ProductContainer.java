@@ -31,12 +31,15 @@ public class ProductContainer {
 				return product;				
 			}else {
 				System.out.println("The scanned product doesn't not exist");
-				return null;
 			}
 		}
+		return null;
 	}
 	
+	/*
+	 * TODO: Implement method
 	public void updateStockCount(int o.quantity, Product o.product) {
 		o.setStockCount(o.quantity);
 	}
+	*/
 }
