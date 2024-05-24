@@ -1,4 +1,6 @@
 package ui;
+import java.util.Scanner;
+
 import controller.SaleController; 
 
 public class SaleUI {
@@ -36,6 +38,19 @@ public class SaleUI {
 	}
 	}
 
+	private int writeSaleMenu() {
+		Scanner keyboard = new Scanner(System.in);
+		System.out.println("** Sale Menu **");
+		System.out.println(" (1) Create Sale");
+		System.out.println(" (2) Add Product");
+		System.out.println(" (3) Make Payment");
+		System.out.println(" (0) Finish");
+		System.out.print("\n Choose");
+		int choice = getIntegerFromUser(keyboard);
+		return choice;
+
+	}
+
 	public void createSale() {
 		SaleController sc = new SaleController();
 		sc.createSale();
@@ -54,4 +69,12 @@ public class SaleUI {
 	public void makePayment(double amount);
 		SaleController sc = new SaleController();
 		sc.makePayment(amount);
+	}
+
+	private int getIntegerFromUser(Scanner keyboard) {
+    while (!keyboard.hasNextInt()) {
+        System.out.println("Invalid input.");
+        keyboard.nextLine();
+    }
+    return keyboard.nextInt();
 }
