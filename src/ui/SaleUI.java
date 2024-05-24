@@ -39,8 +39,8 @@ public class SaleUI {
 			
 			default:
 				System.out.println("Not valid input.");
-		}	
-	}
+			}	
+		}
 	}
 
 	private int writeSaleMenu() {
@@ -66,7 +66,9 @@ public class SaleUI {
 	
 	public void addProduct() {
 		Scanner keyboard = new Scanner (System.in);
+		System.out.println("Enter product barcode: ");
 		int barcode = getIntegerFromUser(keyboard);
+		System.out.println("Enter quantity: ");
 		int quantity = getIntegerFromUser(keyboard);
 		
 		sc.addProduct(barcode, quantity);
@@ -74,8 +76,9 @@ public class SaleUI {
 	}
 	
 	public void makePayment() {
-	}
+	
 		Scanner keyboard = new Scanner (System.in);
+		System.out.println("Enter payment amount: ");
 		double amount = getDoubleFromUser(keyboard);
 		sc.makePayment(amount);
 	}
