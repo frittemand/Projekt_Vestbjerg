@@ -27,8 +27,8 @@ public void setDateFrom(LocalDate dateFrom) {
 
 
 //For creating test
-public void setDateFromManually(String manualInput) {
-	this.setManualDateInputForTest(manualInput);	
+public void setDateFromManually(String purchaseDate) {
+	this.setManualDateInputForTest(purchaseDate);	
 }
 
 public String getManualDateInputForTest() {
