@@ -11,7 +11,7 @@ private double linePrice;
 public Orderline (int quantity, Product product) {
 	this.quantity = quantity; 
 	this.product = product;
-	//this.linePrice = product.getCurrentPrice(LocalDate.now())*quantity;}
+	this.linePrice = product.getCurrentPrice(LocalDate.now())*quantity;
 }
 public int getQuantity() {
 	return quantity;

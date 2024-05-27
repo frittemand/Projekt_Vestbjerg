@@ -113,7 +113,7 @@ public class SaleUI {
 	}
 	
 	public void makePayment() {
-	if(!currentSale.isPaid()) {
+	if(!currentSale.isPaid() && currentSale != null) {
 		Scanner keyboard = new Scanner (System.in);
 		System.out.println("Enter payment amount: ");
 		double amount = getDoubleFromUser(keyboard);
@@ -123,6 +123,8 @@ public class SaleUI {
 		
 		System.out.println("**** Change amount****");
 		System.out.println(currentSale.getChangeAmount());	
+		
+		System.out.println("Salget er " +currentSale.isPaid());
 			if(!currentSale.isPaid()) {
 				makePayment();
 			}
@@ -131,7 +133,7 @@ public class SaleUI {
 			}
 	}
 		else{
-			System.out.println("Payment has already been made");
+			System.out.println("Payment has already been made or sale has not been created");
 			}
 		}
 	
