@@ -7,7 +7,7 @@ public class ProductContainer {
 	private ArrayList<Product> products = new ArrayList<>();
 	private static ProductContainer INSTANCE;
 	
-	private ProductContainer(){
+	public ProductContainer(){
 	}
 	
 	public static ProductContainer getInstance() {
@@ -31,12 +31,13 @@ public class ProductContainer {
 				return product;				
 			}else {
 				System.out.println("The scanned product doesn't not exist");
-				return null;
 			}
 		}
+		return null;
 	}
 	
-	public void updateStockCount(int o.quantity, Product o.product) {
-		o.setStockCount(o.quantity);
+	public void updateStockCount(int quantity, Product product) {
+		int newStockCount = product.getStockCount() - quantity; 
+		product.setStockCount(newStockCount);
 	}
 }
