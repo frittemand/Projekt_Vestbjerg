@@ -3,12 +3,13 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import model.Orderline;
 import model.Product;
-
+import model.Sale;
 import controller.SaleController; 
 
 public class SaleUI {
 	
 	private SaleController sc;
+	private Sale currentSale = null; 
 	
 	
 	public SaleUI() {
@@ -27,10 +28,11 @@ public class SaleUI {
 			switch (choice) {
 			case 1:
 				createSale();
+				addProduct();
 				break;
 			
 			case 2:
-				addProduct();
+				System.out.println("not implemented");
 				break;
 			
 			case 3:
@@ -59,7 +61,7 @@ public class SaleUI {
 		Scanner keyboard = new Scanner(System.in);
 		System.out.println("** Sale Menu **");
 		System.out.println(" (1) Create Sale");
-		System.out.println(" (2) Add Product");
+		System.out.println(" (2) Not implemented");
 		System.out.println(" (3) Make Payment");
 		System.out.println(" (4) Generate Data");
 		System.out.println(" (0) Finish");
@@ -70,10 +72,17 @@ public class SaleUI {
 	}
 
 	public void createSale() {		
-		sc.createSale();
+		if(currentSale == null) {
+		currentSale = sc.createSale();}
+		else {
+			System.out.println("Sale already exist. Plz finish current sale");
+			saleMenu();
+		}
+		
 	}
 	
 	public void finishSale() {
+		currentSale = null;
 		printReceipt();
 		//MainUI mainUI = new MainUI(); 
     	//mainUI.mainMenu();
@@ -89,22 +98,42 @@ public class SaleUI {
 		int quantity = getIntegerFromUser(keyboard);
 		
 		sc.addProduct(quantity, barcode);
+		System.out.println("The total is "+currentSale.getTotalPrice());
 		System.out.println("Add another product?(1 = yes 0 = no");
 		if(getIntegerFromUser(keyboard)== 1) {
 			addProduct();
 		}
-		else { running = false;
+		else{
+			running = false;
+			saleMenu();
+			
 		}
 		}
+		
 	}
 	
 	public void makePayment() {
-	
+	if(!currentSale.isPaid()) {
 		Scanner keyboard = new Scanner (System.in);
 		System.out.println("Enter payment amount: ");
 		double amount = getDoubleFromUser(keyboard);
 		sc.makePayment(amount);
+		System.out.println("Total price of sale "+currentSale.getTotalPrice());
+		System.out.println("Amount paid"+ currentSale.getAmountPaid());
+		
+		System.out.println("**** Change amount****");
+		System.out.println(currentSale.getChangeAmount());	
+			if(!currentSale.isPaid()) {
+				makePayment();
+			}
+			else { 
+				finishSale();
+			}
 	}
+		else{
+			System.out.println("Payment has already been made");
+			}
+		}
 	
 	public void generateData() {
 		new TryMe();

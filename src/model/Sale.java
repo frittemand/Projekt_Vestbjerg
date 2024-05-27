@@ -9,6 +9,7 @@ public class Sale {
 	private ArrayList<Orderline> orderlines; 
 	private double changeAmount; 
 	private double amountPaid; 
+	private boolean isPaid;
 
 	public Sale(){
 		this.salesDate = LocalDate.now();
@@ -40,6 +41,15 @@ public class Sale {
 	}
 	public void setAmountPaid(double amountPaid) {
 		this.amountPaid = amountPaid;
+		
+	}
+	
+	
+	public boolean isPaid() {
+		return isPaid;
+	}
+	public void setPaid(boolean isPaid) {
+		this.isPaid = isPaid;
 	}
 	public ArrayList<Orderline> getOrderline(){
 		ArrayList<Orderline> returnOrderlines = new ArrayList<>();

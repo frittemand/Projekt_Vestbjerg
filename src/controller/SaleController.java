@@ -12,27 +12,30 @@ private Sale s;
 private Orderline o;
 
 
-public void createSale() {
+public Sale createSale() {
 	this.s = new Sale ();
+	return s;
 }
 
 public void makePayment(double amount) {
 	SaleContainer sC = SaleContainer.getInstance();
 	
 	s.setAmountPaid(amount);
-	
+	if(amount > s.getTotalPrice()) {
 	double change = amount - s.getTotalPrice(); 
 	
 	s.setChangeAmount(change);
 	
+	s.setPaid(true); 
 	sC.addSaleToSaleContainer(s);
+}
 }
 
 //
 public void addProduct(int quantity, int barcode) {
-	if(this.s == null) {
-		createSale();
-	}
+//	if(this.s == null) {
+//		createSale();
+//	}
 	ProductController pC = new ProductController(); 	
 	Product p = pC.findProductByBarcode(barcode);
 	
@@ -44,7 +47,6 @@ public void addProduct(int quantity, int barcode) {
 	
 	double total = o.getLinePrice() + s.getTotalPrice();
 	s.setTotalPrice(total);
-	
 }
 public ArrayList<Orderline> getOrderlinesFromOrder() {
 	ArrayList<Orderline>orderLinesOnSale = new ArrayList<>();
