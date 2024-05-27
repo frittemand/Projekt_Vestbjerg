@@ -1,5 +1,6 @@
 package ui;
 import model.Product;
+import java.time.LocalDate;
 import model.ProductContainer;
 import java.time.LocalTime;
 import java.util.Stack;
@@ -20,21 +21,21 @@ public class TryMe {
     public static void main(String[] args) {
         TryMe tryMe = new TryMe();
 
-        // Accessing pc using an instance of TryMe
+        
         tryMe.pc.addProduct(tryMe.p1);
         tryMe.pc.addProduct(tryMe.p2);
         tryMe.pc.addProduct(tryMe.p3);
         tryMe.pc.addProduct(tryMe.p4);
         tryMe.pc.addProduct(tryMe.p5);
 
-        // Accessing product methods
+       
         tryMe.p1.getCurrentPrice();
         tryMe.p3.getPurchasePrice();
         tryMe.p5.getBasePrice();
         
-        tryMe.p1.getCurrentPrice(LocalTime.now());
-        tryMe.p3.getPurchasePrice(LocalTime.now());
-        tryMe.p5.getBasePrice(LocalTime.now());
+        tryMe.p1.getCurrentPrice(LocalDate.now());
+        tryMe.p3.getPurchasePrice(LocalDate.now());
+        tryMe.p5.getBasePrice(LocalDate.now());
     }
  
 }
