@@ -32,20 +32,19 @@ public Product(int barcode, int stockCount, String locationNumber, double basePr
 	this.itemName = itemName;
 	this.maxStock = maxStock;
 	this.minStock = minStock;
-	
-	
-	Price pr1 = new Price(this.basePrice);
-	basePriceLog.push(pr1);
-	
-	Price pr2 =  new Price(this.currentPrice);
-	currentPriceLog.push(pr2);
-	
-	Price pr3 = new Price(this.purchasePrice);
-	purchasePriceLog.push(pr3);
-	
 	this.basePrice = basePrice;
 	this.currentPrice = currentPrice;
 	this.purchasePrice = purchasePrice;
+	
+	
+	Price pr1 = new Price(basePrice);
+	basePriceLog.push(pr1);
+	
+	Price pr2 =  new Price(currentPrice);
+	currentPriceLog.push(pr2);
+	
+	Price pr3 = new Price(purchasePrice);
+	purchasePriceLog.push(pr3);
 
 }
 
