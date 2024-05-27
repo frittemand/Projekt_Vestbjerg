@@ -91,7 +91,7 @@ public int getMinStock() {
 
 public double getBasePrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
-	Price pr = basePriceLog.pop();;
+	Price pr = basePriceLog.pop();
 	Price lastPrice = null;
 	while(!basePriceLog.isEmpty()) {
 		if(pr.getDateFrom().compareTo(date) >= 0) {
@@ -108,7 +108,7 @@ public double getBasePrice(LocalDate date) {
 
 public double getCurrentPrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
-	Price pr = currentPriceLog.pop();;
+	Price pr = currentPriceLog.pop();
 	Price lastPrice = null;
 	while(!currentPriceLog.isEmpty()) {
 		if(pr.getDateFrom().compareTo(date) >= 0) {
@@ -125,7 +125,7 @@ public double getCurrentPrice(LocalDate date) {
 
 public double getPurchasePrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
-	Price pr = purchasePriceLog.pop();;
+	Price pr = purchasePriceLog.pop();
 	Price lastPrice = null;
 	while(!purchasePriceLog.isEmpty()) {
 		if(pr.getDateFrom().compareTo(date) >= 0) {
@@ -143,5 +143,11 @@ public double getPurchasePrice(LocalDate date) {
 public void setStockCount(int newStockCount) {
 	stockCount = newStockCount;
 }
+
+}
+
+
+
+
 
 }
