@@ -107,12 +107,12 @@ public class Product {
 		return lastPrice.getValue();
 	}
 
-	public double getCurrentPrice(LocalTime localTime) {
+	public double getCurrentPrice(LocalDate date) {
 		Stack<Price> tempStack = new Stack<>();
 		Price pr = currentPriceLog.pop();;
 		Price lastPrice = null;
 		while(!currentPriceLog.isEmpty()) {
-			if(pr.getDateFrom().compareTo(localTime) >= 0) {
+			if(pr.getDateFrom().compareTo(date) >= 0) {
 				lastPrice = pr;
 			}
 			else {

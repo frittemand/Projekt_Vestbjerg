@@ -91,7 +91,7 @@ public class SaleUI {
 	}
 	
 	public void generateData() {
-		TryMe.
+		new TryMe();
 	}
 
 	private int getIntegerFromUser(Scanner keyboard) {
