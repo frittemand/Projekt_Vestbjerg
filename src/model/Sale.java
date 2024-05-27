@@ -41,7 +41,12 @@ public class Sale {
 	public void setAmountPaid(double amountPaid) {
 		this.amountPaid = amountPaid;
 	}
-
+	public ArrayList<Orderline> getOrderline(){
+		ArrayList<Orderline> returnOrderlines = new ArrayList<>();
+		returnOrderlines = orderlines;
+		
+		return returnOrderlines;
+	}
 }
 
 

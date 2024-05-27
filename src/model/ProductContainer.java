@@ -26,14 +26,17 @@ public class ProductContainer {
 	}
 
 	public Product findProductByBarcode(int barcode) {
+		Product foundProduct = null;
 		for (Product product : products) {
 			if (product.getBarcode() == barcode) {
-				return product;				
+				foundProduct = product;
+							
 			}else {
 				System.out.println("The scanned product doesn't not exist");
+				foundProduct = null;
 			}
 		}
-		return null;
+		return foundProduct	;
 	}
 
 	public void updateStockCount(int quantity, Product product) {

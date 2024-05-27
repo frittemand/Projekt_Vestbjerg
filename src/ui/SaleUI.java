@@ -1,5 +1,8 @@
 package ui;
+import java.util.ArrayList;
 import java.util.Scanner;
+import model.Orderline;
+import model.Product;
 
 import controller.SaleController; 
 
@@ -71,12 +74,14 @@ public class SaleUI {
 	}
 	
 	public void finishSale() {
-		System.out.print("Tak for pengene.");
+		printReceipt();
 		//MainUI mainUI = new MainUI(); 
     	//mainUI.mainMenu();
 	}
 	
 	public void addProduct() {
+		boolean running = true;
+		while(running) {
 		Scanner keyboard = new Scanner (System.in);
 		System.out.println("Enter product barcode: ");
 		int barcode = getIntegerFromUser(keyboard);
@@ -84,7 +89,13 @@ public class SaleUI {
 		int quantity = getIntegerFromUser(keyboard);
 		
 		sc.addProduct(quantity, barcode);
-		
+		System.out.println("Add another product?(1 = yes 0 = no");
+		if(getIntegerFromUser(keyboard)== 1) {
+			addProduct();
+		}
+		else { running = false;
+		}
+		}
 	}
 	
 	public void makePayment() {
@@ -112,5 +123,16 @@ public class SaleUI {
             keyboard.nextLine();
         }
         return keyboard.nextDouble();
+    }
+    private void printReceipt() {
+    	System.out.println("The sale is completed");
+    	System.out.println("Here is your receipt");
+		ArrayList<Orderline> printLines = sc.getOrderlinesFromOrder();
+		
+		for(Orderline o : printLines) {
+			Product p = o.getProduct();
+			
+			System.out.println(p.getItemName()+" "+ "quantity " + o.getQuantity());  
+		}	
     }
 }
