@@ -2,8 +2,6 @@ package ui;
 import model.Product;
 import java.time.LocalDate;
 import model.ProductContainer;
-import java.time.LocalTime;
-import java.util.Stack;
 public class TryMe {
     private ProductContainer pc;
     private Product p1, p2, p3, p4, p5;
