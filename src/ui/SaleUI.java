@@ -15,7 +15,7 @@ public class SaleUI {
 	
 	public void start() {
 		saleMenu();
-	}
+		writeSaleMenu();	}
 	
 	public void saleMenu() {
 		boolean running = true;

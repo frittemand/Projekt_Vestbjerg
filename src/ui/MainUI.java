@@ -46,8 +46,7 @@ public class MainUI {
 
 	
 
-	public static void main(String []args) {
-	}
+
 	private void mainMenu() {
 		boolean running = true;
 		while (running) {
@@ -55,7 +54,7 @@ public class MainUI {
 			switch (choice) {
 			case 1:
 				System.out.println("Denne er ikke implementeret endnu");
-				//saleUI.start();
+				saleUI.start();
 				break;
 			case 2:
 				System.out.println("Denne er ikke implementeret endnu");
