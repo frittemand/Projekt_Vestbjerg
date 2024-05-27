@@ -45,9 +45,6 @@ public class MainUI {
 		        }
 		    }
 
-	
-
-
 private int writeMainMenu() {
 	Scanner keyboard = new Scanner(System.in);
 	System.out.println("****** Main menu ******");
