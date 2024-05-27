@@ -20,7 +20,9 @@ private int maxStock;
 private int minStock;
 
 
-public Product(int barcode, int stockCount, String locationNumber, double basePrice, double currentPrice, double purchasePrice, String description, String itemName,int maxStock, int minStock)
+public Product(int barcode, int stockCount, String locationNumber, 
+			   double basePrice, double currentPrice, double purchasePrice, 
+			   String description, String itemName, int maxStock, int minStock)
 {
 	basePriceLog = new Stack<>();
 	currentPriceLog = new Stack<>();
