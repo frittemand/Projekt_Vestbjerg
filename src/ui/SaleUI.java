@@ -68,7 +68,9 @@ public class SaleUI {
 	}
 	
 	public void finishSale() {
-		System.out.print("Null");
+		System.out.print("Tak for pengene.");
+		MainUI mainUI = new MainUI(); 
+    	mainUI.mainMenu();
 	}
 	
 	public void addProduct() {

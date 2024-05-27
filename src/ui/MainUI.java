@@ -14,7 +14,7 @@ public class MainUI {
 		    	mainUI.mainMenu();
 		    	
 		    }
-		    private void mainMenu() {
+		    public void mainMenu() {
 		        boolean running = true;
 		        while (running) {
 		            int choice = writeMainMenu();
