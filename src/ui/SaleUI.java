@@ -15,7 +15,7 @@ public class SaleUI {
 	
 	public void start() {
 		saleMenu();
-		writeSaleMenu();	}
+			}
 	
 	public void saleMenu() {
 		boolean running = true;
@@ -45,6 +45,7 @@ public class SaleUI {
 			
 			default:
 				System.out.println("Not valid input.");
+				break;
 			}	
 		}
 	}
@@ -69,8 +70,8 @@ public class SaleUI {
 	
 	public void finishSale() {
 		System.out.print("Tak for pengene.");
-		MainUI mainUI = new MainUI(); 
-    	mainUI.mainMenu();
+		//MainUI mainUI = new MainUI(); 
+    	//mainUI.mainMenu();
 	}
 	
 	public void addProduct() {

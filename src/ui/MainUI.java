@@ -22,7 +22,7 @@ public class MainUI {
 		                case 1:
 		                	SaleUI newSaleUI = new SaleUI();	
 		                	newSaleUI.start();
-		                	running = false; 
+		                	 
 		                  break;
 		                case 2:
 		                  System.out.println("Denne er ikke implementeret endnu");
