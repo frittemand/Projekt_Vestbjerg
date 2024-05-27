@@ -4,12 +4,15 @@ public class MainUI {
 	 private SaleUI newSaleUI;
 	//Note: denne UI er ikke helt funktionel 
 		    public MainUI() {
-		      SaleUI saleUI = new SaleUI();
+		    	 SaleUI newSaleUI = new SaleUI();
 		        
 		       
 		    }
 		    
 		    public static void main(String []args) {
+		    	MainUI mainUI = new MainUI(); 
+		    	mainUI.writeMainMenu();
+		    	
 		    }
 		    private void mainMenu() {
 		        boolean running = true;
@@ -17,8 +20,8 @@ public class MainUI {
 		            int choice = writeMainMenu();
 		            switch (choice) {
 		                case 1:
-		                	System.out.println("Denne er ikke implementeret endnu");
-		                  //saleUI.start();
+		                	newSaleUI.start();
+		                	running = false; 
 		                  break;
 		                case 2:
 		                  System.out.println("Denne er ikke implementeret endnu");
