@@ -32,20 +32,19 @@ public Product(int barcode, int stockCount, String locationNumber, double basePr
 	this.itemName = itemName;
 	this.maxStock = maxStock;
 	this.minStock = minStock;
-	
-	
-	Price pr1 = new Price(this.basePrice);
-	basePriceLog.push(pr1);
-	
-	Price pr2 =  new Price(this.currentPrice);
-	currentPriceLog.push(pr2);
-	
-	Price pr3 = new Price(this.purchasePrice);
-	purchasePriceLog.push(pr3);
-	
 	this.basePrice = basePrice;
 	this.currentPrice = currentPrice;
 	this.purchasePrice = purchasePrice;
+	
+	
+	Price pr1 = new Price(basePrice);
+	basePriceLog.push(pr1);
+	
+	Price pr2 =  new Price(currentPrice);
+	currentPriceLog.push(pr2);
+	
+	Price pr3 = new Price(purchasePrice);
+	purchasePriceLog.push(pr3);
 
 }
 
@@ -90,7 +89,7 @@ public int getMinStock() {
 }
 
 
-public double getBasePrice(LocalDate date) {
+/*public double getBasePrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
 	Price pr = basePriceLog.pop();
 	Price lastPrice = null;
@@ -110,7 +109,7 @@ public double getBasePrice(LocalDate date) {
 	}
 	}
 	return lastPrice.getValue();
-}
+}*/
 
 public double getCurrentPrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
@@ -160,4 +159,19 @@ public void setStockCount(int newStockCount) {
 	stockCount = newStockCount;
 }
 
+public double getBasePrice(LocalDate priceLogDate) {
+	Stack<Price> tempStack = (Stack<Price>)basePriceLog.clone();
+	boolean found = false;
+	Price pr = null;
+	while(!found && !tempStack.empty()) {
+		if(tempStack.peek().getDateFrom().compareTo(priceLogDate) >= 0) {
+			pr = tempStack.peek();
+			found = true;
+		}
+		else {
+			tempStack.pop();
+		}
+		}
+	return pr.getValue();
+	}
 }
