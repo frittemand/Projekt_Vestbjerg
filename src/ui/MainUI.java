@@ -14,7 +14,7 @@ public class MainUI {
 		    	mainUI.mainMenu();
 		    	
 		    }
-		    private void mainMenu() {
+		    public void mainMenu() {
 		        boolean running = true;
 		        while (running) {
 		            int choice = writeMainMenu();
@@ -52,7 +52,10 @@ private int writeMainMenu() {
 	System.out.println(" (2) Lend Tools");
 	System.out.println(" (3) Products");
 	System.out.println(" (9) Generate Test data");
-	System.out.println(" (0) Close Terminal");
+	System.out.println(" (0) C");
+	System.out.print("\n Chose:");
+
+	while (!keyboard.hasNextInt()) {
 		System.out.println("Plz insert a number");
 		keyboard.nextLine();
 	}
