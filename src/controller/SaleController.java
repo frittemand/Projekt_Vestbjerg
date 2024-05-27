@@ -26,7 +26,7 @@ public void makePayment(double amount) {
 }
 
 //
- void addProduct(int quantity, int barcode) {
+public void addProduct(int quantity, int barcode) {
 	
 	ProductController pC = new ProductController(); 	
 	Product p = pC.findProductByBarcode(barcode);
