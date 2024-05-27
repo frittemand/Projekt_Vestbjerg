@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Sale {
 
 	private LocalDate salesDate; 
-	private static int salesID; 
+	private static int salesID = 1; 
 	private double totalPrice; 
 	private ArrayList<Orderline> orderlines; 
 	private double changeAmount; 

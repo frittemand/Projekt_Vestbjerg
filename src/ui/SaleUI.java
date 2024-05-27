@@ -83,7 +83,7 @@ public class SaleUI {
 		System.out.println("Enter quantity: ");
 		int quantity = getIntegerFromUser(keyboard);
 		
-		sc.addProduct(barcode, quantity);
+		sc.addProduct(quantity, barcode);
 		
 	}
 	

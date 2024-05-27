@@ -9,8 +9,9 @@ public class SaleController {
 private Sale s;
 private Orderline o;
 
+
 public void createSale() {
-	s = new Sale ();
+	this.s = new Sale ();
 }
 
 public void makePayment(double amount) {
@@ -33,7 +34,7 @@ public void addProduct(int quantity, int barcode) {
 	
 	o = new Orderline(quantity, p);
 	
-	s.addOrderline(o);
+	this.s.addOrderline(o);
 	
 	pC.updateStockCount(quantity, p);
 	

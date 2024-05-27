@@ -20,7 +20,7 @@ private int maxStock;
 private int minStock;
 
 
-public Product(int barcode, int stockCount, String locationNumber, double BasePrice, double CurrentPrice, double PurchasePrice, String description, String itemName,int maxStock, int minStock)
+public Product(int barcode, int stockCount, String locationNumber, double basePrice, double currentPrice, double purchasePrice, String description, String itemName,int maxStock, int minStock)
 {
 	basePriceLog = new Stack<>();
 	currentPriceLog = new Stack<>();
@@ -43,9 +43,9 @@ public Product(int barcode, int stockCount, String locationNumber, double BasePr
 	Price pr3 = new Price(this.purchasePrice);
 	purchasePriceLog.push(pr3);
 	
-	basePrice = basePriceLog.peek().getValue();
-	currentPrice = currentPriceLog.peek().getValue();
-	purchasePrice = purchasePriceLog.peek().getValue();
+	this.basePrice = basePrice;
+	this.currentPrice = currentPrice;
+	this.purchasePrice = purchasePrice;
 
 }
 

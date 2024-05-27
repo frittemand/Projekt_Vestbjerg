@@ -20,7 +20,7 @@ public class TryMe {
         pc.addProduct(p4);
         pc.addProduct(p5);
         System.out.println(p1.getItemName());
-        System.out.println(p1.getCurrentPrice());
+        
         System.out.println(p1.getCurrentPrice(LocalDate.now()));
     }
 
