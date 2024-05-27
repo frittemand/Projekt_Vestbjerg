@@ -44,39 +44,6 @@ public class MainUI {
 		        }
 		    }
 
-	
-
-
-	private void mainMenu() {
-		boolean running = true;
-		while (running) {
-			int choice = writeMainMenu();
-			switch (choice) {
-			case 1:
-				System.out.println("Denne er ikke implementeret endnu");
-				saleUI.start();
-				break;
-			case 2:
-				System.out.println("Denne er ikke implementeret endnu");
-				break;
-			case 3:
-				System.out.println("Denne er ikke implementeret endnu");
-				break;
-			case 9:
-				System.out.println("Denne er ikke implementeret endnu");
-				//createTestData();
-				break;
-			case 0:
-				System.out.println("Tak for denne gang.");
-				running = false;
-				break;
-			default:
-				System.out.println("Der er sket en uforklarlig fejl, choice = "+choice);
-				break;
-			}
-		}
-	}
-
 private int writeMainMenu() {
 	Scanner keyboard = new Scanner(System.in);
 	System.out.println("****** Main menu ******");
