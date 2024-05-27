@@ -94,6 +94,10 @@ public double getBasePrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
 	Price pr = basePriceLog.pop();
 	Price lastPrice = null;
+	if(pr.getDateFrom().equals(date)) {
+		lastPrice = pr;
+	}
+	else {
 	while(!basePriceLog.isEmpty()) {
 		if(pr.getDateFrom().compareTo(date) >= 0) {
 			lastPrice = pr;
@@ -104,6 +108,7 @@ public double getBasePrice(LocalDate date) {
 		}
 		}
 	}
+	}
 	return lastPrice.getValue();
 }
 
@@ -111,6 +116,10 @@ public double getCurrentPrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
 	Price pr = currentPriceLog.pop();
 	Price lastPrice = null;
+	if(pr.getDateFrom().equals(date)) {
+		lastPrice = pr;
+	}
+	else {
 	while(!currentPriceLog.isEmpty()) {
 		if(pr.getDateFrom().compareTo(date) >= 0) {
 			lastPrice = pr;
@@ -121,6 +130,7 @@ public double getCurrentPrice(LocalDate date) {
 		}
 		}
 	}
+	}
 	return lastPrice.getValue();
 }
 
@@ -128,6 +138,10 @@ public double getPurchasePrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
 	Price pr = purchasePriceLog.pop();
 	Price lastPrice = null;
+	if(pr.getDateFrom().equals(date)) {
+		lastPrice = pr;
+	}
+	else {
 	while(!purchasePriceLog.isEmpty()) {
 		if(pr.getDateFrom().compareTo(date) >= 0) {
 			lastPrice = pr;
@@ -137,6 +151,7 @@ public double getPurchasePrice(LocalDate date) {
 			purchasePriceLog.push(tempStack.pop());
 		}
 		}
+	}
 	}
 	return lastPrice.getValue();
 }
