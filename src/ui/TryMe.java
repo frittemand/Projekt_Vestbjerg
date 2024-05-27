@@ -35,5 +35,5 @@ public class TryMe {
         tryMe.p3.getPurchasePrice(LocalDate.now());
         tryMe.p5.getBasePrice(LocalDate.now());
     }
- 
+
 }
