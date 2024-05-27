@@ -24,7 +24,11 @@ class ProductTest {
 		tempStack.push(price3);
 		
 		//Act
-		String result = 
+		String expectedPrice = "22-22-22";
+		String result = price2.getPurChasePrice(expectedPrice);
+		
+		//Assert
+		assertEquals("22-22-22", result);
 	}
 
 }
