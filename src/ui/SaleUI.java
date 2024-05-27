@@ -7,8 +7,10 @@ public class SaleUI {
 	
 	private SaleController sc;
 	
+	
 	public SaleUI() {
 		sc = new SaleController();
+		
 	}
 	
 	public void start() {
@@ -89,7 +91,7 @@ public class SaleUI {
 	}
 	
 	public void generateData() {
-		TryMe.();
+		new TryMe();
 	}
 
 	private int getIntegerFromUser(Scanner keyboard) {

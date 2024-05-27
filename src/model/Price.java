@@ -5,7 +5,7 @@ import java.time.LocalDate;
 public class Price {
 private double value;
 private LocalDate dateFrom;
-private String manualDateInputForTest;
+
 
 public Price(double value) {
 	this.value = value;
@@ -25,18 +25,5 @@ public void setDateFrom(LocalDate dateFrom) {
 	this.dateFrom = dateFrom;
 }
 
-
-//For creating test
-public void setDateFromManually(String purchaseDate) {
-	this.setManualDateInputForTest(purchaseDate);	
-}
-
-public String getManualDateInputForTest() {
-	return manualDateInputForTest;
-}
-
-public void setManualDateInputForTest(String manualDateInputForTest) {
-	this.manualDateInputForTest = manualDateInputForTest;
-}
 }
 
