@@ -14,17 +14,21 @@ public class TryMe {
         p3 = new Product (32345, 10, "Hylde 1, række 3", 15, 11, 8, "Dette er en skruetrækker", "skruetrækker", 100, 10);
         p4 = new Product (42345, 10, "Hylde 1, række 4", 15, 11, 8, "Dette er et målebånd", "målebånd", 100, 10);
         p5 = new Product (52345, 10, "Hylde 1, række 5", 110, 11, 8, "Dette er en boremaskine", "boremaskine", 100, 10);
+        pc.addProduct(p1);
+        pc.addProduct(p2);
+        pc.addProduct(p3);
+        pc.addProduct(p4);
+        pc.addProduct(p5);
+        System.out.println(p1.getItemName());
+        System.out.println(p1.getCurrentPrice());
+        System.out.println(p1.getCurrentPrice(LocalDate.now()));
     }
 
     public static void main(String[] args) {
         TryMe tryMe = new TryMe();
 
-        
-        tryMe.pc.addProduct(tryMe.p1);
-        tryMe.pc.addProduct(tryMe.p2);
-        tryMe.pc.addProduct(tryMe.p3);
-        tryMe.pc.addProduct(tryMe.p4);
-        tryMe.pc.addProduct(tryMe.p5);
+       
+       
 
        
         tryMe.p1.getCurrentPrice();
@@ -34,6 +38,8 @@ public class TryMe {
         tryMe.p1.getCurrentPrice(LocalDate.now());
         tryMe.p3.getPurchasePrice(LocalDate.now());
         tryMe.p5.getBasePrice(LocalDate.now());
+        
+      
     }
 
 }

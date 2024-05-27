@@ -36,6 +36,8 @@ public class SaleUI {
 				
 			case 4:
 				generateData();
+				System.out.println("Test Data has been added");
+				
 				break;
 			
 			case 0:
