@@ -88,79 +88,46 @@ public int getMinStock() {
 	return minStock;
 }
 
-
-/*public double getBasePrice(LocalDate date) {
-	Stack<Price> tempStack = new Stack<>();
-	Price pr = basePriceLog.pop();
-	Price lastPrice = null;
-	if(pr.getDateFrom().equals(date)) {
-		lastPrice = pr;
-	}
-	else {
-	while(!basePriceLog.isEmpty()) {
-		if(pr.getDateFrom().compareTo(date) >= 0) {
-			lastPrice = pr;
-		}
-		else {
-		while(!tempStack.isEmpty()) {
-			basePriceLog.push(tempStack.pop());
-		}
-		}
-	}
-	}
-	return lastPrice.getValue();
-}*/
-
-public double getCurrentPrice(LocalDate date) {
-	Stack<Price> tempStack = new Stack<>();
-	Price pr = currentPriceLog.pop();
-	Price lastPrice = null;
-	if(pr.getDateFrom().equals(date)) {
-		lastPrice = pr;
-	}
-	else {
-	while(!currentPriceLog.isEmpty()) {
-		if(pr.getDateFrom().compareTo(date) >= 0) {
-			lastPrice = pr;
-		}
-		else {
-		while(!tempStack.isEmpty()) {
-			currentPriceLog.push(tempStack.pop());
-		}
-		}
-	}
-	}
-	return lastPrice.getValue();
-}
-
-public double getPurchasePrice(LocalDate date) {
-	Stack<Price> tempStack = new Stack<>();
-	Price pr = purchasePriceLog.pop();
-	Price lastPrice = null;
-	if(pr.getDateFrom().equals(date)) {
-		lastPrice = pr;
-	}
-	else {
-	while(!purchasePriceLog.isEmpty()) {
-		if(pr.getDateFrom().compareTo(date) >= 0) {
-			lastPrice = pr;
-		}
-		else {
-		while(!tempStack.isEmpty()) {
-			purchasePriceLog.push(tempStack.pop());
-		}
-		}
-	}
-	}
-	return lastPrice.getValue();
-}
-
 public void setStockCount(int newStockCount) {
 	stockCount = newStockCount;
 }
 
 public double getBasePrice(LocalDate priceLogDate) {
 	Stack<Price> tempStack = (Stack<Price>)basePriceLog.clone();
+	boolean found = false;
+	Price pr = null;
+	while(!found && !tempStack.empty()) {
+		if(tempStack.peek().getDateFrom().compareTo(priceLogDate) >= 0) {
+			pr = tempStack.peek();
+			found = true;
+		}
+		else {
+			tempStack.pop();
+		}
+		}
+	return pr.getValue();
+	}
+
+
+public double getCurrentPrice(LocalDate priceLogDate) {
+	Stack<Price> tempStack = (Stack<Price>)currentPriceLog.clone();
+	boolean found = false;
+	Price pr = null;
+	while(!found && !tempStack.empty()) {
+		if(tempStack.peek().getDateFrom().compareTo(priceLogDate) >= 0) {
+			pr = tempStack.peek();
+			found = true;
+		}
+		else {
+			tempStack.pop();
+		}
+		}
+	return pr.getValue();
+	}
+
+
+public double getPurchasePrice(LocalDate priceLogDate) {
+	Stack<Price> tempStack = (Stack<Price>)purchasePriceLog.clone();
 	boolean found = false;
 	Price pr = null;
 	while(!found && !tempStack.empty()) {
