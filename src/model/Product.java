@@ -90,7 +90,7 @@ public int getMinStock() {
 }
 
 
-public double getBasePrice(LocalDate date) {
+/*public double getBasePrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
 	Price pr = basePriceLog.pop();
 	Price lastPrice = null;
@@ -110,7 +110,7 @@ public double getBasePrice(LocalDate date) {
 	}
 	}
 	return lastPrice.getValue();
-}
+}*/
 
 public double getCurrentPrice(LocalDate date) {
 	Stack<Price> tempStack = new Stack<>();
@@ -160,4 +160,19 @@ public void setStockCount(int newStockCount) {
 	stockCount = newStockCount;
 }
 
+public double getBasePrice(LocalDate priceLogDate) {
+	Stack<Price> tempStack = (Stack<Price>)basePriceLog.clone();
+	boolean found = false;
+	Price pr = null;
+	while(!found && !tempStack.empty()) {
+		if(tempStack.peek().getDateFrom().compareTo(priceLogDate) >= 0) {
+			pr = tempStack.peek();
+			found = true;
+		}
+		else {
+			tempStack.pop();
+		}
+		}
+	return pr.getValue();
+	}
 }
