@@ -42,9 +42,9 @@ public class MainUI {
 		                  break;
 		            }
 		        }
-		    }}
+		    }
 
-	}
+	
 
 	public static void main(String []args) {
 	}
