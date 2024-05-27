@@ -6,17 +6,17 @@ import model.Product;
 public class ProductContainer {
 	private ArrayList<Product> products = new ArrayList<>();
 	private static ProductContainer INSTANCE;
-	
+
 	public ProductContainer(){
 	}
-	
+
 	public static ProductContainer getInstance() {
 		if (INSTANCE == null){
 			INSTANCE = new ProductContainer();
 		}
 		return INSTANCE;
 	}
-	
+
 	public void addProduct(Product product) {
 		if (product == null) {
 			System.out.print("No product added. Please select a product");
@@ -24,7 +24,7 @@ public class ProductContainer {
 			products.add(product);
 		}
 	}
-	
+
 	public Product findProductByBarcode(int barcode) {
 		for (Product product : products) {
 			if (product.getBarcode() == barcode) {
@@ -35,7 +35,7 @@ public class ProductContainer {
 		}
 		return null;
 	}
-	
+
 	public void updateStockCount(int quantity, Product product) {
 		int newStockCount = product.getStockCount() - quantity; 
 		product.setStockCount(newStockCount);

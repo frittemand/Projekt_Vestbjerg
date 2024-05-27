@@ -1,5 +1,6 @@
 package model;
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Stack;
 
 public class Product {
