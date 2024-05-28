@@ -75,10 +75,14 @@ public class SaleUI {
 	}
 	
 	public void finishSale() {
-		currentSale = null;
-		printReceipt();
-		//MainUI mainUI = new MainUI(); 
-    	//mainUI.mainMenu();
+		
+		if (currentSale == null) {
+			MainUI mainUI = new MainUI(); 
+	    	mainUI.mainMenu();
+		} else {
+			currentSale = null;
+			printReceipt();
+		}
 	}
 	
 	public void addProduct() {
