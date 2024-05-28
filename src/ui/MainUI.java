@@ -32,7 +32,7 @@ public class MainUI {
 		                  break;
 		                case 9:
 		                  System.out.println("Denne er ikke implementeret endnu");
-		                  //createTestData();
+		                  generateData();
 		                  break;
 		                case 0:
 		                  System.out.println("Tak for denne gang.");
@@ -63,9 +63,8 @@ private int writeMainMenu() {
 	return choice;
 }
 
-private void createTestData(){
-	TryMe tm = new TryMe();
-
+public void generateData() {
+	new TryMe();
 }
 }
 
