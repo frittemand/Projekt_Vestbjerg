@@ -4,7 +4,6 @@ import java.time.LocalDate;
 
 public class Orderline {
 private int quantity; 
-
 private Product product; 
 private double linePrice; 
 
