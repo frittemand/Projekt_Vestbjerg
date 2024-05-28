@@ -77,6 +77,7 @@ public class SaleUI {
 	public void finishSale() {
 		
 		if (currentSale == null) {
+			System.out.println("Sale is canceled. Back to main menu.");
 			MainUI mainUI = new MainUI(); 
 	    	mainUI.mainMenu();
 		} else {
