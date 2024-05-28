@@ -31,7 +31,7 @@ public class MainUI {
 		                System.out.println("Denne er ikke implementeret endnu");
 		                  break;
 		                case 9:
-		                  System.out.println("Denne er ikke implementeret endnu");
+		                  System.out.println("Test data gennemført.");
 		                  generateData();
 		                  break;
 		                case 0:
