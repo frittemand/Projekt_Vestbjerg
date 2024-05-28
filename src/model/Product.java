@@ -103,7 +103,12 @@ public class Product {
 				tempStack.pop();
 			}
 		}
-		return pr.getValue();
+		if (pr.getValue() == 0.0) {
+			System.out.println("The product does't exist in the stack");
+			return 0.0;
+		} else {
+			return pr.getValue();
+		}
 	}
 
 	public double getCurrentPrice(LocalDate priceLogDate) {
@@ -118,7 +123,12 @@ public class Product {
 				tempStack.pop();
 			}
 		}
-		return pr.getValue();
+		if (pr.getValue() == 0.0) {
+			System.out.println("The product does't exist in the stack");
+			return 0.0;
+		} else {
+			return pr.getValue();
+		}
 	}
 
 	public double getPurchasePrice(LocalDate priceLogDate) {
@@ -133,6 +143,11 @@ public class Product {
 				tempStack.pop();
 			}
 		}
-		return pr.getValue();
+		if (pr.getValue() == 0.0) {
+			System.out.println("The product does't exist in the stack");
+			return 0.0;
+		} else {
+			return pr.getValue();
+		}
 	}
 }
