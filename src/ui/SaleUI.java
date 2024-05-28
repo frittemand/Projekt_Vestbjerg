@@ -38,12 +38,6 @@ public class SaleUI {
 			case 3:
 				makePayment();
 				break;
-				
-			case 4:
-				generateData();
-				System.out.println("Test Data has been added");
-				
-				break;
 			
 			case 0:
 				finishSale();
@@ -63,7 +57,6 @@ public class SaleUI {
 		System.out.println(" (1) Create Sale");
 		System.out.println(" (2) Not implemented");
 		System.out.println(" (3) Make Payment");
-		System.out.println(" (4) Generate Data");
 		System.out.println(" (0) Finish");
 		System.out.print("\n Choose: ");
 		int choice = getIntegerFromUser(keyboard);
@@ -137,9 +130,6 @@ public class SaleUI {
 			}
 		}
 	
-	public void generateData() {
-		new TryMe();
-	}
 
 	private int getIntegerFromUser(Scanner keyboard) {
     while (!keyboard.hasNextInt()) {
