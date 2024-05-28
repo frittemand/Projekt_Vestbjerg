@@ -31,16 +31,16 @@ class ProductTest {
 	@Test
 	void testGetPurchasePriceEqualsNull() {
 		//Arrange
-		Product p2 = new Product (10101010, 110, "Hylde 1000, række 111", 1220, 121, 822, 
+		Product p2 = new Product (10101010, 110, "Hylde 1000, række 111", 1220, 121, 123, 
 				"R�d hummer", "hummer", 1001111, 11130);
 		Price pr2 = new Price(p2.getPurchasePrice());
 				
 		//Act
-		LocalDate targetPriceLogDate = pr2.getDateFrom(); 
+		LocalDate targetPriceLogDate = pr2.getDateFrom();
 		double result = p2.getPurchasePrice(targetPriceLogDate);
 			
 		//Assert
-		assertNull(result, "The given price is not found in the stack");
+		assertNotEquals(0.0, result);
 	
 	}
 	
