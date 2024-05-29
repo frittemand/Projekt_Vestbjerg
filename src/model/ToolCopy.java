@@ -1,11 +1,12 @@
 package model;
 
 public class ToolCopy {
-private static int copyNumber= 1;
+private static int copyGenerator= 0;
+private int copyNumber;
 private boolean isHome; 
 
 public ToolCopy () {
-	this.copyNumber = copyNumber++;
+	this.copyNumber = ++copyGenerator;
 	this.isHome = true; 
 }
 
