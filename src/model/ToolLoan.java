@@ -17,7 +17,7 @@ public class ToolLoan {
 		this.customer = customer;
 	}
 	
-	public void addToolOrderlineToToolOrderline(ToolOrderline to) {
+	public void addOrderlineToLoan(ToolOrderline to) {
 		if (to != null) {
 			toolOrderlines.add(to);			
 		}else {

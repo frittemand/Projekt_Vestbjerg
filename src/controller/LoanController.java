@@ -57,7 +57,7 @@ public void addCopyToLoan(String toolName)	{
 	}
 	
 	if(to != null) {
-		l.addToolOrderlineToToolOrderline(to);
+		l.addOrderlineToLoan(to);
 		tc.updateIsHome(copy);
 	}
 	else {
