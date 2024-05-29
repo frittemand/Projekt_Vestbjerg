@@ -22,9 +22,9 @@ public class ToolLoan {
 		
 	}
 	
-	public void addOrderlineToLoan(ToolOrderline to) {
-		if (to != null) {
-			toolOrderlines.add(to);			
+	public void addOrderlineToLoan(ToolOrderline toolOrderline) {
+		if (toolOrderline != null) {
+			toolOrderlines.add(toolOrderline);			
 		}else {
 			System.out.println("There are no ToolOrderline to be added");
 		}
