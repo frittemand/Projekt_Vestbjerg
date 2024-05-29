@@ -3,28 +3,26 @@ import model.*;
 
 public class LoanController {
 
-private ToolLoan l;
-private ToolOrderline to;
-private ToolCopy copy;
-private	Customer c;
-private double dr;
+private ToolLoan loan;
+private	Customer customer;
+private double dayRate;
 
 
 
 public Customer findCustomerByPhoneNumber(int phoneNumber) {
 	CustomerController cc = new CustomerController();
-	c = cc.findCustomerByPhoneNumber(phoneNumber);
-	if(c != null) {
-		return c;
+	customer = cc.findCustomerByPhoneNumber(phoneNumber);
+	if(customer != null) {
+		return customer;
 	}
 	else {
 		throw new IllegalArgumentException("Phone number doesn't exist in the system");
 	}
 }
 
-public void createLoan(int duration) {
-	if(c != null) {
-		l = new ToolLoan(duration, c);
+public void createLoan(int duration) { 
+	if(customer != null) {
+		loan = new ToolLoan(duration, customer);
 	}
 	else {
 		throw new IllegalArgumentException("duration invalid or customer not present");
@@ -32,30 +30,30 @@ public void createLoan(int duration) {
 }
 
 public void addCopyToLoan(String toolName)	{
+	ToolOrderline to = null;
 	ToolController tc = new ToolController();
+	ToolCopy copy = tc.findToolByToolName(toolName);
 	
 	if(copy != null) {
-		copy = tc.findToolByToolName(toolName);
+		dayRate = tc.findDayRate(toolName);
 	}
 	else {
 		throw new IllegalArgumentException("Tool unavailable");
 	}
 
-	if(dr != 0.0) {
-		dr = tc.findDayRate(toolName);
+	if(dayRate != 0.0) {
+		to = new ToolOrderline(copy, dayRate);
+		loan.addOrderlineToLoan(to);
+		tc.updateIsHome(copy);
 	}
 	else {
 		throw new IllegalArgumentException("error occured");
 	}
-	
-	to = new ToolOrderline(copy, dr);
-	l.addOrderlineToLoan(to);
-	tc.updateIsHome(copy);
 }
 
 public void finishLoan() {
 	LoanContainer lc = LoanContainer.getInstance();
-	lc.addToolLoanToLoanContainer(l);
+	lc.addToolLoanToLoanContainer(loan);
 }
 
 
