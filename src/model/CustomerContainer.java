@@ -30,7 +30,12 @@ public class CustomerContainer {
 			
 		}
 		return foundNumber;
+		
 	}
-
+	public void addCustomerToContainer (Customer c) {
+		if (c != null) {
+		customers.add(c);
+		}
 	
+}
 }
