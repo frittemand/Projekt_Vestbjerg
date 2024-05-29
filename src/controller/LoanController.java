@@ -47,7 +47,8 @@ public ToolCopy addCopyToLoan(String toolName)	{
 	}
 
 	if(dayRate != 0.0) {
-		to = new ToolOrderline(copy, dayRate);
+		double linePrice = dayRate * loan.getDuration();
+		to = new ToolOrderline(copy, dayRate, linePrice, toolName);
 		loan.addOrderlineToLoan(to);
 		tc.updateIsHome(copy);
 	}
