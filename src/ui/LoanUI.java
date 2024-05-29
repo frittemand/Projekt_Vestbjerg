@@ -63,8 +63,12 @@ private int writeLoanMenu() {
 		loanController.findCustomerByPhoneNumber(phoneNumber);
 	}
 	
-	public void createLoan(int duration) {
-		loanController.createLoan(duration);
+	public void createLoan() {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("How many days do you want to loan the item?");
+		int numberOfDays = scanner.nextInt();
+		loanController.createLoan(numberOfDays);
+		scanner.close();
 	}
 	
 	public void addCopyToLoan(String toolName) {
