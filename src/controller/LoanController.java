@@ -34,35 +34,23 @@ public void createLoan(int duration) {
 public void addCopyToLoan(String toolName)	{
 	ToolController tc = new ToolController();
 	
-	copy = tc.findToolByToolName(toolName);
 	if(copy != null) {
-		
+		copy = tc.findToolByToolName(toolName);
 	}
 	else {
 		throw new IllegalArgumentException("Tool unavailable");
 	}
-	
-	dr = tc.findDayRate(toolName);
+
 	if(dr != 0.0) {
-	}
-	else {
-		throw new IllegalArgumentException("Tool doesnt exist");
-	}
-	
-	if(copy != null && dr != 0.0) {
-		to = new ToolOrderline(copy, dr);
+		dr = tc.findDayRate(toolName);
 	}
 	else {
 		throw new IllegalArgumentException("error occured");
 	}
 	
-	if(to != null) {
-		l.addOrderlineToLoan(to);
-		tc.updateIsHome(copy);
-	}
-	else {
-		throw new IllegalArgumentException("error occured");
-	}
+	to = new ToolOrderline(copy, dr);
+	l.addOrderlineToLoan(to);
+	tc.updateIsHome(copy);
 }
 
 public void finishLoan() {
