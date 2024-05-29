@@ -88,5 +88,9 @@ public void addToolLoanToToolLoanContainer() {
 	lc.addToolLoanToToolContainer(l);
 }
 
+public void endLoan() {
+	addToolLoanToToolLoanContainer();
+	ToolLoan l = null;
+}
 
 }
