@@ -47,4 +47,9 @@ public class ToolLoan {
 	public void setTotalLoanPrice(double newTotalPrice) {
 		totalLoanPrice = newTotalPrice;
 	}
+	public ArrayList<ToolOrderline> getToolOrderLines() {
+		ArrayList<ToolOrderline>returnToolOrderLine = new ArrayList(); 
+		returnToolOrderLine = toolOrderlines;
+		return returnToolOrderLine ;
+	}
 }
