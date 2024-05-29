@@ -1,11 +1,15 @@
 package ui;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import controller.LoanController;
 import model.Customer;
+import model.Orderline;
+import model.Product;
 import model.ToolCopy;
 import model.ToolLoan;
+import model.ToolOrderline;
 
 public class LoanUI {
 	private LoanController loanController;
@@ -120,7 +124,7 @@ private int writeLoanMenu() {
 		}
 		System.out.println("tool: " + loan.getOrderlineToolName());
 		System.out.println("DayRate: " + loan.getOrderlineDayRate());
-		System.out.println("Price: " + loan.getOrderlineLinePrice());
+		System.out.println("Price for period: " + loan.getOrderlineLinePrice());
 		System.out.println("Add more tools?");
 		System.out.println("1 for yes. 0 for no");
 		
@@ -138,8 +142,9 @@ private int writeLoanMenu() {
 	
 	
 	public void endLoan() {
+		printReceipt();
 		loanController.endLoan();
-		System.out.println("Loan created");
+		
 	}
 	
 	private int getIntegerFromUser(Scanner keyboard) {
@@ -148,5 +153,15 @@ private int writeLoanMenu() {
 	        keyboard.nextLine();
 	    }
 	    return keyboard.nextInt();
+	}
+	private void printReceipt() {
+		System.out.println("The Loan is completed");
+		System.out.println("Here is your receipt");
+		ArrayList<ToolOrderline> printLines = loanController.getToolOrderLines();
+
+		for (ToolOrderline orderline : printLines) {
+			
+			System.out.println("Tool: "+orderline.getToolName() + "Day rate: " + orderline.getToolDayRate() + " Price for period: "+ orderline.getLinePrice());
+}
 	}
 }
