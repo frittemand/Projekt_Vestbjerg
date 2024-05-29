@@ -40,4 +40,7 @@ public ToolCopy findCopyByIsHome() {
 }
 	return foundCopy;
 	}
+public void addCopyToTool(ToolCopy copy) {
+	copies.add(copy);
+}
 }
