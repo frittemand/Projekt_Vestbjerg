@@ -134,8 +134,9 @@ private int writeLoanMenu() {
 		}
 		else {
 			running = false;
-			endLoan();
+		
 		}
+		endLoan();
 		}
 		}
 		
