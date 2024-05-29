@@ -8,68 +8,50 @@ import model.Sale;
 import model.SaleContainer;
 
 public class SaleController {
-private Sale s;
-private Orderline o;
+	private Sale sale;
+	private Orderline orderline;
 
+	public Sale createSale() {
+		this.sale = new Sale();
+		return sale;
+	}
 
-public Sale createSale() {
-	this.s = new Sale ();
-	return s;
-}
+	public void makePayment(double amount) {
+		SaleContainer saleContainer = SaleContainer.getInstance();
 
-public void makePayment(double amount) {
-	SaleContainer sC = SaleContainer.getInstance();
-	
-	s.setAmountPaid(amount);
-	if(amount > s.getTotalPrice()) {
-	double change = amount - s.getTotalPrice(); 
-	
-	s.setChangeAmount(change);
-	
-	s.setPaid(true); 
-	sC.addSaleToSaleContainer(s);
-}
-}
+		sale.setAmountPaid(amount);
+		if (amount > sale.getTotalPrice()) {
+			double change = amount - sale.getTotalPrice();
 
-//
-public void addProduct(int quantity, int barcode) {
-//	if(this.s == null) {
+			sale.setChangeAmount(change);
+
+			sale.setPaid(true);
+			saleContainer.addSaleToSaleContainer(sale);
+		}
+	}
+
+	public void addProduct(int quantity, int barcode) {
+//	if(this.sale == null) {
 //		createSale();
 //	}
-	ProductController pC = new ProductController(); 	
-	Product p = pC.findProductByBarcode(barcode);
-	
-	o = new Orderline(quantity, p);
-	
-	s.addOrderline(o);
-	
-	pC.updateStockCount(quantity, p);
-	
-	double total = o.getLinePrice() + s.getTotalPrice();
-	s.setTotalPrice(total);
-}
-public ArrayList<Orderline> getOrderlinesFromOrder() {
-	ArrayList<Orderline>orderLinesOnSale = new ArrayList<>();
-	orderLinesOnSale = s.getOrderline();
-	return orderLinesOnSale;
-		
+		ProductController productController = new ProductController();
+		Product product = productController.findProductByBarcode(barcode);
+
+		orderline = new Orderline(quantity, product);
+
+		sale.addOrderline(orderline);
+
+		productController.updateStockCount(quantity, product);
+
+		double total = orderline.getLinePrice() + sale.getTotalPrice();
+		sale.setTotalPrice(total);
 	}
-	
-	
+
+	public ArrayList<Orderline> getOrderlinesFromOrder() {
+		ArrayList<Orderline> orderLinesOnSale = new ArrayList<>();
+		orderLinesOnSale = sale.getOrderline();
+		return orderLinesOnSale;
+
+	}
+
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
