@@ -133,8 +133,9 @@ private int writeLoanMenu() {
 			addCopyToLoan();
 		}
 		else {
-			running = false;
+			
 			endLoan();
+			running = false;
 		}
 		}
 		}
