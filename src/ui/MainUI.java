@@ -2,6 +2,7 @@ package ui;
 import java.util.Scanner;
 public class MainUI {
 	private SaleUI newSaleUI;
+	private LoanUI newLoanUI;
 	//Note: denne UI er ikke helt funktionel 
 		    public MainUI() {
 		    	 
@@ -25,7 +26,8 @@ public class MainUI {
 		                	 
 		                  break;
 		                case 2:
-		                  System.out.println("Denne er ikke implementeret endnu");
+		                  LoanUI newLoanUI = new LoanUI();	
+		                	newLoanUI.start();
 		                  break;
 		                case 3:
 		                System.out.println("Denne er ikke implementeret endnu");
