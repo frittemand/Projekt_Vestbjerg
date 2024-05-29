@@ -3,9 +3,13 @@ package ui;
 import java.util.Scanner;
 
 import controller.LoanController;
+import model.Customer;
+import model.ToolCopy;
+import model.ToolLoan;
 
 public class LoanUI {
 	private LoanController loanController;
+	private ToolLoan loan;
 	
 public LoanUI(){
 	loanController = new LoanController(); 
@@ -21,12 +25,11 @@ public void loanMenu() {
 		int choice = writeLoanMenu();
 		switch (choice) {
 		case 1:
-			createLoan();
-			addCopyToLoan();
+			findCustomerByPhoneNumber();
 			break;
 		
 		case 2:
-			System.out.println("not implemented");
+			addCopyToLoan();
 			break;
 		
 		case 3:
@@ -47,36 +50,103 @@ public void loanMenu() {
 
 private int writeLoanMenu() {
 	Scanner keyboard = new Scanner(System.in);
-	System.out.println("** Sale Menu **");
-	System.out.println(" (1) Create Sale");
-	System.out.println(" (2) Not implemented");
-	System.out.println(" (3) Make Payment");
+	System.out.println("** Loan Menu **");
+	System.out.println(" (1) Create Loan");
+	System.out.println(" (2) Add Tools");
+	System.out.println(" (3) End Loan");
 	System.out.println(" (0) Finish");
 	System.out.print("\n Choose: ");
 	int choice = getIntegerFromUser(keyboard);
+//	keyboard.close();
 	return choice;
 
 }	
 	
 	
-	public void findCustomerByPhoneNumber(int phoneNumber) {
-		loanController.findCustomerByPhoneNumber(phoneNumber);
+	public void findCustomerByPhoneNumber() {
+		System.out.println("Customer phonenumber plz");
+		Scanner scanner = new Scanner(System.in);
+		int phoneNumber = scanner.nextInt();
+//		scanner.close();
+		
+		Customer customer = loanController.findCustomerByPhoneNumber(phoneNumber);
+		if(customer ==null) {
+			System.out.println("No customer found, try again");
+			findCustomerByPhoneNumber();
+		}
+		else { 
+			System.out.println("Customer name is:" + customer.getName());
+			System.out.println("Confirm");
+			System.out.println("1 for yes: 0 for no");
+			
+			Scanner scanner2 = new Scanner(System.in);
+			int confirmChoice = scanner2.nextInt();
+//			scanner2.close();
+			
+			if(confirmChoice == 1) {
+				createLoan();
+				
+			}
+			else {
+				findCustomerByPhoneNumber();
+			}
+		}
 	}
 	
 	public void createLoan() {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("How many days do you want to loan the item?");
 		int numberOfDays = scanner.nextInt();
-		loanController.createLoan(numberOfDays);
-		scanner.close();
+		if(numberOfDays <= 0) {
+			System.out.println("A loan can't be less than 0 days");
+			createLoan();
+		}
+		else {
+		loan = loanController.createLoan(numberOfDays);
+//		scanner.close();
 	}
-	
-	public void addCopyToLoan(String toolName) {
-		//TODO implement method
+	}
+	public void addCopyToLoan() {
+		boolean running = true;
+		while(running = true) {
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Insert Tool Name");
+		String toolName = scanner.nextLine();
+		ToolCopy copy = loanController.addCopyToLoan(toolName);
+		if (copy == null) {
+			System.out.println("couldnt find any Tools ");
+			System.out.println("Try again");
+			addCopyToLoan();
+		}
+		System.out.println("tool: " + loan.getOrderlineToolName());
+		System.out.println("DayRate: " + loan.getOrderlineDayRate());
+		System.out.println("Price: " + loan.getOrderlineLinePrice());
+		System.out.println("Add more tools?");
+		System.out.println("1 for yes. 0 for no");
 		
-	}
+		int confirmChoice = getIntegerFromUser(scanner);
+		if(confirmChoice == 1) {
+			addCopyToLoan();
+		}
+		else {
+			running = false;
+			endLoan();
+		}
+		}
+		}
+		
+	
 	
 	public void endLoan() {
 		loanController.endLoan();
+		System.out.println("Loan created");
+	}
+	
+	private int getIntegerFromUser(Scanner keyboard) {
+	    while (!keyboard.hasNextInt()) {
+	        System.out.println("Invalid input.");
+	        keyboard.nextLine();
+	    }
+	    return keyboard.nextInt();
 	}
 }
