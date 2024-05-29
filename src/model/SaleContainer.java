@@ -18,8 +18,8 @@ public static SaleContainer getInstance() {
 	return INSTANCE;
 }
 
-public void addSaleToSaleContainer(Sale s) {
-	sales.add(s);
+public void addSaleToSaleContainer(Sale sale) {
+	sales.add(sale);
 }
 
 

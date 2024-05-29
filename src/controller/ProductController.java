@@ -17,8 +17,8 @@ public class ProductController {
 	}
 
 	public Product findProductByBarcode(int barcode) {
-		ProductContainer pC = ProductContainer.getInstance();
-		return pC.findProductByBarcode(barcode);
+		ProductContainer productContainer = ProductContainer.getInstance();
+		return productContainer.findProductByBarcode(barcode);
 	}
 	
 	
