@@ -31,9 +31,9 @@ public class ProductContainer {
 		boolean searching = true;
 		Iterator<Product> it = products.iterator();
 		while(it.hasNext() && searching) {
-			Product a1 = it.next();
-			if(a1.getBarcode() ==barcode){
-				foundProduct = a1; 
+			Product product = it.next();
+			if(product.getBarcode() ==barcode){
+				foundProduct = product; 
 				searching = false;
 				
 			}
@@ -42,19 +42,6 @@ public class ProductContainer {
 		return foundProduct;
 	}
 		
-		
-//		for (Product product : products) {
-//			if (product.getBarcode() == barcode) {
-//				foundProduct = product;
-//							
-//			}else {
-//				System.out.println("The scanned product doesn't not exist");
-//				foundProduct = null;
-//			}
-//		}
-//		return foundProduct	;
-//	}
-
 	public void updateStockCount(int quantity, Product product) {
 		int newStockCount = product.getStockCount() - quantity; 
 		product.setStockCount(newStockCount);
