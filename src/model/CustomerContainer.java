@@ -32,9 +32,9 @@ public class CustomerContainer {
 		return foundNumber;
 		
 	}
-	public void addCustomerToContainer (Customer c) {
-		if (c != null) {
-		customers.add(c);
+	public void addCustomerToContainer (Customer customer) {
+		if (customer != null) {
+		customers.add(customer);
 		}
 	
 }
