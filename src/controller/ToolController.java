@@ -9,16 +9,16 @@ public ToolController(){
 	}
 
 public ToolCopy findToolByToolName(String toolName) {
-	ToolContainer tc = ToolContainer.getInstance();
-	return tc.findToolByToolName(toolName);
+	ToolContainer toolContainer = ToolContainer.getInstance();
+	return toolContainer.findToolByToolName(toolName);
 
 }
 public double findDayRate(String toolName) {
-	ToolContainer tc = ToolContainer.getInstance();
-	return tc.findDayRate(toolName);
+	ToolContainer toolContainer = ToolContainer.getInstance();
+	return toolContainer.findDayRate(toolName);
 }
 public void updateIsHome(ToolCopy copy) {
-	ToolContainer tc = ToolContainer.getInstance();
-	tc.updateIsHome(copy);
+	ToolContainer toolContainer = ToolContainer.getInstance();
+	toolContainer.updateIsHome(copy);
 }
 }
