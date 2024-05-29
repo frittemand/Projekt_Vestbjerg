@@ -23,13 +23,14 @@ public Customer findCustomerByPhoneNumber(int phoneNumber) {
 	}
 }
 
-public void createLoan(int duration) { 
+public ToolLoan createLoan(int duration) { 
 	if(customer != null) {
 		loan = new ToolLoan(duration, customer);
 	}
 	else {
 		throw new IllegalArgumentException("duration invalid or customer not present");
 	}
+	return loan;
 }
 
 public ToolCopy addCopyToLoan(String toolName)	{
