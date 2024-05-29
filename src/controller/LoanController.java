@@ -21,7 +21,7 @@ public Customer findCustomerByPhoneNumber(int phoneNumber) {
 		throw new IllegalArgumentException("Phone number doesn't exist in the system");
 	}
 }
-//Checker den ordentligt for null? samme med ovenfor.
+
 public void createLoan(int duration) {
 	if(c != null) {
 		l = new ToolLoan(duration, c);
@@ -31,66 +31,45 @@ public void createLoan(int duration) {
 	}
 }
 
-public ToolCopy findToolByToolName(String toolName) {
+public void addCopyToLoan(String toolName)	{
 	ToolController tc = new ToolController();
+	
 	copy = tc.findToolByToolName(toolName);
 	if(copy != null) {
-		return copy;
+		
 	}
 	else {
 		throw new IllegalArgumentException("Tool unavailable");
 	}
-}
-
-public double findDayRate(String ToolName) {
-	ToolController tc = new ToolController();
-	dr = tc.findDayRate(ToolName);
+	
+	dr = tc.findDayRate(toolName);
 	if(dr != 0.0) {
-	return dr;
 	}
 	else {
 		throw new IllegalArgumentException("Tool doesnt exist");
 	}
-}
 	
-public ToolOrderline createOrderline() {
 	if(copy != null && dr != 0.0) {
 		to = new ToolOrderline(copy, dr);
-		return to;
 	}
 	else {
 		throw new IllegalArgumentException("error occured");
 	}
-}
-
-public void addOrderlineToLoan() {
-	if(to != null) {
-		l.addToolOrderlineToToolOrderline(to);
-		updateIsHome();
-	}
-	else {
-		throw new IllegalArgumentException("error occured");
-	}
-}
-	public void updateIsHome() {
-		ToolController tc = new ToolController();
-		if(to.getCopy() != null) {
-			tc.updateIsHome(copy);
-		}
-		else {
-			throw new IllegalArgumentException("error occured");
-		}
-	}
-
-public void addToolLoanToToolLoanContainer() {
-	LoanContainer lc = LoanContainer.getInstance();
 	
-	lc.addToolLoanToToolContainer(l);
+	if(to != null) {
+		l.addOrderlineToLoan(to);
+		tc.updateIsHome(copy);
+	}
+	else {
+		throw new IllegalArgumentException("error occured");
+	}
 }
 
-public void endLoan() {
-	addToolLoanToToolLoanContainer();
-	ToolLoan l = null;
+public void finishLoan() {
+	LoanContainer lc = LoanContainer.getInstance();
+	lc.addToolLoanToLoanContainer(l);
 }
+
+
 
 }

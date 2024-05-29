@@ -17,7 +17,7 @@ public static LoanContainer getInstance(){
     return INSTANCE;
 }
 
-public void addToolLoanToToolContainer(ToolLoan l) {
+public void addToolLoanToLoanContainer(ToolLoan l) {
 	loans.add(l);
 }
     
