@@ -1,13 +1,18 @@
 package ui;
+import model.Customer;
+import model.CustomerContainer;
 import model.Product;
 import java.time.LocalDate;
 import model.ProductContainer;
 public class TryMe {
     private ProductContainer pc;
+    private CustomerContainer cc;
     private Product p1, p2, p3, p4, p5;
+    private Customer c1, c2, c3, c4, c5;
 
     public TryMe() { 
         pc = ProductContainer.getInstance();
+        cc = CustomerContainer.getInstance();
         
         p1 = new Product (12345, 10, "Hylde 1, række 1", 10, 11, 8, "Dette er en hammer", "hammer", 100, 10);
         p2 = new Product (22345, 10, "Hylde 1, række 2", 16, 11, 8, "Dette er en lille hammer", "hammer", 100, 10);
@@ -19,13 +24,21 @@ public class TryMe {
         pc.addProduct(p3);
         pc.addProduct(p4);
         pc.addProduct(p5);
-        System.out.println(p1.getItemName());
-        System.out.println(p1.getBasePrice());
-        System.out.println(p1.getBasePrice(LocalDate.now()));
+        c1 = new Customer ("Mikkel", "Karl Marx alle 87", "mikkel@hotmail.com", 22407778);
+        c2 = new Customer ("lars", "hjemme hos dig", "LarsErEnHyggefætter@gmail.com", 12345568);
+        c3 = new Customer ("Peter", "aalborg kongress", "peterkok@gmail.com", 49385135);
+        c4 = new Customer ("kasper", "hjemløs", "JegHaderKøbenhavn@gmail.com", 27561359);
+        c5 = new Customer ("Stefan", "Store Villavej", "LadMigVære@gmail.com", 14359768);
+        cc.addCustomerToContainer(c1);
+        cc.addCustomerToContainer(c2);
+        cc.addCustomerToContainer(c3);
+        cc.addCustomerToContainer(c4);
+        cc.addCustomerToContainer(c5);
+        System.out.println("din kunde hedder "+ c1.getPhoneNumber());
     }
 
     public static void main(String[] args) {
-        TryMe tryMe = new TryMe();
+        TryMe tryMe = new TryMe();	
 
        
        
