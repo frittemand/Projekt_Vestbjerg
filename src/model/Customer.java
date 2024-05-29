@@ -16,4 +16,7 @@ public class Customer extends Person {
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
+	public String getName() {
+		return name; 
+	}
 }
