@@ -12,7 +12,7 @@ private int toolBarcode;
 private String toolName; 
 
 public Tool(double dayRate, String description, int toolBarcode, String toolName) {
-	
+	copies = new ArrayList<>();
 	this.dayRate = dayRate;
 	this.description = description;
 	this.toolBarcode = toolBarcode;
