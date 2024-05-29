@@ -2,16 +2,13 @@ package ui;
 
 import java.util.Scanner;
 
-import controller.CustomerController;
 import controller.LoanController;
 
 public class LoanUI {
 	private LoanController loanController;
-	private CustomerController customerController; //TODO Add this attribute to the design class diagram
 	
 public LoanUI(){
 	loanController = new LoanController(); 
-	customerController = new CustomerController();
 }
 	
 public void start() {
@@ -63,7 +60,7 @@ private int writeLoanMenu() {
 	
 	
 	public void findCustomerByPhoneNumber(int phoneNumber) {
-		customerController.findCustomerByPhoneNumber(phoneNumber);
+		loanController.findCustomerByPhoneNumber(phoneNumber);
 	}
 	
 	public void createLoan(int duration) {
