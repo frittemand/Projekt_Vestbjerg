@@ -2,6 +2,8 @@
 
 
 package controller;
+import java.util.ArrayList;
+
 import model.*;
 
 public class LoanController {
@@ -63,6 +65,12 @@ public void endLoan() {
 	lc.addToolLoanToLoanContainer(loan);
 	loan = null;
 	customer = null;
+}
+public ArrayList<ToolOrderline> getToolOrderLines() {
+	ArrayList<ToolOrderline> returnOrderlines = new ArrayList();
+	returnOrderlines =loan.getToolOrderLines();
+	
+	return returnOrderlines;
 }
 
 
