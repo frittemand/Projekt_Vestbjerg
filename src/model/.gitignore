@@ -9,3 +9,6 @@
 /Customer.class
 /Person.class
 /CustomerContainer.class
+/LoanContainer.class
+/ToolLoan.class
+/ToolOrderline.class
