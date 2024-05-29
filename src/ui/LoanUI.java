@@ -112,7 +112,7 @@ private int writeLoanMenu() {
 	}
 	public void addCopyToLoan() {
 		boolean running = true;
-		while(running = true) {
+		while(running == true) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("Insert Tool Name");
 		String toolName = scanner.nextLine();
@@ -133,9 +133,8 @@ private int writeLoanMenu() {
 			addCopyToLoan();
 		}
 		else {
-			
-			endLoan();
 			running = false;
+			endLoan();
 		}
 		}
 		}
