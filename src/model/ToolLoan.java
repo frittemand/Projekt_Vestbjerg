@@ -11,10 +11,15 @@ public class ToolLoan {
 	private boolean loanIsPaid;
 	private double totalLoanPrice;
 	private Customer customer;
+	private LocalDate loanEndDate;
 	
 	public ToolLoan(int duration, Customer customer) {
 		this.duration = duration;
 		this.customer = customer;
+		isReturned = false;
+		loanDate = LocalDate.now();
+		loanEndDate = loanDate.plusDays(duration);
+		
 	}
 	
 	public void addOrderlineToLoan(ToolOrderline to) {
