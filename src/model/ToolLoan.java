@@ -12,6 +12,7 @@ public class ToolLoan {
 	private double totalLoanPrice;
 	private Customer customer;
 	private LocalDate loanEndDate;
+	private ToolOrderline currentOrderline;
 	
 	public ToolLoan(int duration, Customer customer) {
 		this.duration = duration;
@@ -24,12 +25,25 @@ public class ToolLoan {
 	
 	public void addOrderlineToLoan(ToolOrderline toolOrderline) {
 		if (toolOrderline != null) {
-			toolOrderlines.add(toolOrderline);			
+			toolOrderlines.add(toolOrderline);	
+			currentOrderline = toolOrderline;
 		}else {
 			System.out.println("There are no ToolOrderline to be added");
 		}
 	}
+	public int getDuration() {
+		return duration;
+	}
+	public double getOrderlineLinePrice() {
+		return currentOrderline.getLinePrice();
+	}
+	public String getOrderlineToolName() {
+		return currentOrderline.getToolName();
+	}
 	
+	public double getOrderlineDayRate() {
+		return currentOrderline.getToolDayRate();
+	}
 	public void setTotalLoanPrice(double newTotalPrice) {
 		totalLoanPrice = newTotalPrice;
 	}
