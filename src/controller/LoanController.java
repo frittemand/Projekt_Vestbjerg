@@ -1,3 +1,6 @@
+
+
+
 package controller;
 import model.*;
 
@@ -29,7 +32,7 @@ public void createLoan(int duration) {
 	}
 }
 
-public void addCopyToLoan(String toolName)	{
+public ToolCopy addCopyToLoan(String toolName)	{
 	ToolOrderline to = null;
 	ToolController tc = new ToolController();
 	ToolCopy copy = tc.findToolByToolName(toolName);
@@ -38,7 +41,8 @@ public void addCopyToLoan(String toolName)	{
 		dayRate = tc.findDayRate(toolName);
 	}
 	else {
-		throw new IllegalArgumentException("Tool unavailable");
+		return copy;
+		
 	}
 
 	if(dayRate != 0.0) {
@@ -49,6 +53,7 @@ public void addCopyToLoan(String toolName)	{
 	else {
 		throw new IllegalArgumentException("error occured");
 	}
+	return copy;
 }
 
 public void finishLoan() {
