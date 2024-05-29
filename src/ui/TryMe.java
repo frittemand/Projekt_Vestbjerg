@@ -78,24 +78,6 @@ public class TryMe {
         			t3.addCopyToTool(copy5);
         			t3.addCopyToTool(copy6);
  
-    }
-
-    public static void main(String[] args) {
-        TryMe tryMe = new TryMe();	
-
-       
-       
-
-       
-        tryMe.p1.getCurrentPrice();
-        tryMe.p3.getPurchasePrice();
-        tryMe.p5.getBasePrice();
-        
-        tryMe.p1.getCurrentPrice(LocalDate.now());
-        tryMe.p3.getPurchasePrice(LocalDate.now());
-        tryMe.p5.getBasePrice(LocalDate.now());
-        
-      
-    }
+}
 
 }
