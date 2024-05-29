@@ -58,9 +58,11 @@ public ToolCopy addCopyToLoan(String toolName)	{
 	return copy;
 }
 
-public void finishLoan() {
+public void endLoan() {
 	LoanContainer lc = LoanContainer.getInstance();
 	lc.addToolLoanToLoanContainer(loan);
+	loan = null;
+	customer = null;
 }
 
 
