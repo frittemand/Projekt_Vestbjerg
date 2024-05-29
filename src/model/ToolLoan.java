@@ -10,10 +10,11 @@ public class ToolLoan {
 	private boolean isReturned;
 	private boolean loanIsPaid;
 	private double totalLoanPrice;
+	private Customer customer;
 	
 	public ToolLoan(int duration, Customer customer) {
 		this.duration = duration;
-		this.customer = customer; //TODO Resolve this issue
+		this.customer = customer;
 	}
 	
 	public void addToolOrderlineToToolOrderline(ToolOrderline to) {
