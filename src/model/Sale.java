@@ -43,7 +43,9 @@ public class Sale {
 		this.amountPaid = amountPaid;
 		
 	}
-	
+	public LocalDate getSalesDate() {
+		return salesDate;
+	}	
 	
 	public boolean isPaid() {
 		return isPaid;
