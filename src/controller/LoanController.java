@@ -15,8 +15,8 @@ private double dayRate;
 
 
 public Customer findCustomerByPhoneNumber(int phoneNumber) {
-	CustomerController cc = new CustomerController();
-	customer = cc.findCustomerByPhoneNumber(phoneNumber);
+	CustomerController customerController = new CustomerController();
+	customer = customerController.findCustomerByPhoneNumber(phoneNumber);
 	if(customer != null) {
 		return customer;
 	}
@@ -36,12 +36,12 @@ public ToolLoan createLoan(int duration) {
 }
 
 public ToolCopy addCopyToLoan(String toolName)	{
-	ToolOrderline to = null;
-	ToolController tc = new ToolController();
-	ToolCopy copy = tc.findToolByToolName(toolName);
+	ToolOrderline toolOrderline = null;
+	ToolController toolController = new ToolController();
+	ToolCopy copy = toolController.findToolByToolName(toolName);
 	
 	if(copy != null) {
-		dayRate = tc.findDayRate(toolName);
+		dayRate = toolController.findDayRate(toolName);
 	}
 	else {
 		return copy;
@@ -50,9 +50,9 @@ public ToolCopy addCopyToLoan(String toolName)	{
 
 	if(dayRate != 0.0) {
 		double linePrice = dayRate * loan.getDuration();
-		to = new ToolOrderline(copy, dayRate, linePrice, toolName);
-		loan.addOrderlineToLoan(to);
-		tc.updateIsHome(copy);
+		toolOrderline = new ToolOrderline(copy, dayRate, linePrice, toolName);
+		loan.addOrderlineToLoan(toolOrderline);
+		toolController.updateIsHome(copy);
 	}
 	else {
 		throw new IllegalArgumentException("error occured");
@@ -61,8 +61,8 @@ public ToolCopy addCopyToLoan(String toolName)	{
 }
 
 public void endLoan() {
-	LoanContainer lc = LoanContainer.getInstance();
-	lc.addToolLoanToLoanContainer(loan);
+	LoanContainer loanContainer = LoanContainer.getInstance();
+	loanContainer.addToolLoanToLoanContainer(loan);
 	loan = null;
 	customer = null;
 }
