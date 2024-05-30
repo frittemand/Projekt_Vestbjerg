@@ -41,8 +41,10 @@ public void loanMenu() {
 			break;
 		
 		case 0:
-			endLoan();
 			running = false;
+			MainUI mainUI = new MainUI();
+			mainUI.mainMenu();
+			
 			break;
 		
 		default:
@@ -58,7 +60,7 @@ private int writeLoanMenu() {
 	System.out.println(" (1) Create Loan");
 	System.out.println(" (2) Add Tools");
 	System.out.println(" (3) End Loan");
-	System.out.println(" (0) Finish");
+	System.out.println(" (0) Go back");
 	System.out.print("\n Choose: ");
 	int choice = getIntegerFromUser(keyboard);
 //	keyboard.close();
@@ -145,6 +147,7 @@ private int writeLoanMenu() {
 	public void endLoan() {
 		printReceipt();
 		loanController.endLoan();
+		MainUI mainUI = new MainUI();
 		
 	}
 	
@@ -162,7 +165,7 @@ private int writeLoanMenu() {
 
 		for (ToolOrderline orderline : printLines) {
 			
-			System.out.println("Tool: "+orderline.getToolName() + "Day rate: " + orderline.getToolDayRate() + " Price for period: "+ orderline.getLinePrice());
+			System.out.println("Tool: "+orderline.getToolName()+ " Copy Number: "+ orderline.getCopy().getCopyNumber() + " Day rate: " + orderline.getToolDayRate() + " Price for period: "+ orderline.getLinePrice());
 }
 	}
 }
