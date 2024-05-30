@@ -2,10 +2,13 @@ package model;
 import java.time.LocalDate;
 import java.util.ArrayList; 
 public class Sale {
-
-	
+	/**
+	 * fields for Sale
+	 * 
+	 */
 	private LocalDate salesDate; 
 	/**
+	 * 
 	 * 
 	 */
 	private static int salesID = 1; 
@@ -33,7 +36,8 @@ public class Sale {
 	/**
 	 * constructor for Sale
 	 * salesDate is the date the sale is made
-	 * 
+	 * changeAmount is how Customer gets back after paying
+	 * amountPaid is how much the customer paid
 	 */
 	public Sale(){
 		this.salesDate = LocalDate.now();
