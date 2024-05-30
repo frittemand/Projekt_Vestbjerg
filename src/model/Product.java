@@ -198,7 +198,7 @@ public class Product {
 	}
 
 	/**
-	 * @param priceLogDate
+	 * @param priceLogDate is the date for which you wish to see a price
 	 * @return
 	 */
 	public double getBasePrice(LocalDate priceLogDate) {
@@ -222,7 +222,7 @@ public class Product {
 	}
 
 	/**
-	 * @param priceLogDate
+	 * @param priceLogDate is the date for which you wish to see a price
 	 * @return
 	 */
 	public double getCurrentPrice(LocalDate priceLogDate) {
@@ -246,7 +246,7 @@ public class Product {
 	}
 
 	/**
-	 * @param priceLogDate
+	 * @param priceLogDate is the date for which you wish to see a price
 	 * @return
 	 */
 	public double getPurchasePrice(LocalDate priceLogDate) {
