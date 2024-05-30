@@ -8,14 +8,40 @@ import model.Sale;
 import model.SaleContainer;
 
 public class SaleController {
+	/**
+	 * 
+	 */
 	private Sale sale;
+	/**
+	 * 
+	 */
 	private Orderline orderline;
 
+	
+	/**constructor for SaleController
+	 * 
+	 */
+	public SaleController() {
+		
+	}
+	/**
+	 * @returns a Sale
+	 * creates a new Sale
+	 */
 	public Sale createSale() {
 		this.sale = new Sale();
 		return sale;
 	}
 
+	/**
+	 * @param amount is the amount of money a Customer has paid
+	 * runs getInstance in SaleContainer
+	 * runs setAmoundpaid in sale with amount as input
+	 * checks if amount paid is bigger than total and calculates change
+	 * runs setChangeAmount in sale with change as input
+	 * runs setPaid in sale with true as input
+	 * runs addSaleToSaleContainer in saleContainer with sale as input
+	 */
 	public void makePayment(double amount) {
 		SaleContainer saleContainer = SaleContainer.getInstance();
 
@@ -30,6 +56,15 @@ public class SaleController {
 		}
 	}
 
+	/**
+	 * @param quantity is the amount a Customer wishes to buy
+	 * @param barcode is the barcode to a specific product
+	 * makes a ProductController and runs findProductByBarcode in it with barcode as input
+	 * creates a new orderline with quantity and product as inputs.
+	 * adds orderline to sales ArrayList
+	 * runs updateStockCount in productController with wuantity and product as input
+	 * calculates total 
+	 */
 	public void addProduct(int quantity, int barcode) {
 //	if(this.sale == null) {
 //		createSale();
@@ -47,6 +82,9 @@ public class SaleController {
 		sale.setTotalPrice(total);
 	}
 
+	/**
+	 * @returns ArrayList
+	 */
 	public ArrayList<Orderline> getOrderlinesFromOrder() {
 		ArrayList<Orderline> orderLinesOnSale = new ArrayList<>();
 		orderLinesOnSale = sale.getOrderline();
