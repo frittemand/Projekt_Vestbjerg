@@ -21,12 +21,14 @@ public class MainUI {
 		            int choice = writeMainMenu();
 		            switch (choice) {
 		                case 1:
-		                	SaleUI newSaleUI = new SaleUI();	
+		                	SaleUI newSaleUI = new SaleUI();
+		                	running = false;
 		                	newSaleUI.start();
 		                	 
 		                  break;
 		                case 2:
 		                  LoanUI newLoanUI = new LoanUI();	
+		                  running = false;
 		                	newLoanUI.start();
 		                  break;
 		                case 3:
