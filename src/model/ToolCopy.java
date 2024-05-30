@@ -17,5 +17,7 @@ public class ToolCopy {
 	public void setHome(boolean isHome) {
 		this.isHome = isHome;
 	}
-
+public int getCopyNumber() {
+	return copyNumber;
+}
 }
