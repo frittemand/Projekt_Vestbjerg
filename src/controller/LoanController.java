@@ -63,12 +63,10 @@ public ToolCopy addCopyToLoan(String toolName)	{
 public void endLoan() {
 	LoanContainer loanContainer = LoanContainer.getInstance();
 	loanContainer.addToolLoanToLoanContainer(loan);
-	customer = null;
 }
 public ArrayList<ToolOrderline> getToolOrderLines() {
 	ArrayList<ToolOrderline> returnOrderlines = new ArrayList();
 	returnOrderlines =loan.getToolOrderLines();
-	loan = null;
 	return returnOrderlines;
 }
 
