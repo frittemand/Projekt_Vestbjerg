@@ -143,21 +143,22 @@ public class Product {
 	 * @returns a basePrice
 	 */
 	public double getBasePrice() {
-		return basePrice;
-	}
+		return basePriceLog.peek().getValue();
+
+	}	
 
 	/**
 	 * @returns a currentPrice
 	 */
 	public double getCurrentPrice() {
-		return currentPrice;
+		return currentPriceLog.peek().getValue();
 	}
 
 	/**
 	 * @returna purchasePrise
 	 */
 	public double getPurchasePrice() {
-		return purchasePrice;
+		return purchasePriceLog.peek().getValue();
 	}
 
 	/**
