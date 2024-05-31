@@ -63,7 +63,6 @@ private int writeLoanMenu() {
 	System.out.println(" (0) Go back");
 	System.out.print("\n Choose: ");
 	int choice = getIntegerFromUser(keyboard);
-//	keyboard.close();
 	return choice;
 
 }	
@@ -73,7 +72,6 @@ private int writeLoanMenu() {
 		System.out.println("Customer phonenumber plz");
 		Scanner scanner = new Scanner(System.in);
 		int phoneNumber = scanner.nextInt();
-//		scanner.close();
 		
 		Customer customer = loanController.findCustomerByPhoneNumber(phoneNumber);
 		if(customer ==null) {
@@ -87,7 +85,6 @@ private int writeLoanMenu() {
 			
 			Scanner scanner2 = new Scanner(System.in);
 			int confirmChoice = scanner2.nextInt();
-//			scanner2.close();
 			
 			if(confirmChoice == 1) {
 				createLoan();
@@ -109,7 +106,6 @@ private int writeLoanMenu() {
 		}
 		else {
 		loan = loanController.createLoan(numberOfDays);
-//		scanner.close();
 	}
 	}
 	public void addCopyToLoan() {
