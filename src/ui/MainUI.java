@@ -3,7 +3,6 @@ import java.util.Scanner;
 public class MainUI {
 	private SaleUI newSaleUI;
 	private LoanUI newLoanUI;
-	//Note: denne UI er ikke helt funktionel 
 		    public MainUI() {
 		    	 
 		        
@@ -56,7 +55,7 @@ private int writeMainMenu() {
 	System.out.println(" (2) Lend Tools");
 	System.out.println(" (3) Products");
 	System.out.println(" (9) Generate Test data");
-	System.out.println(" (0) C");
+	System.out.println(" (0) Close Program");
 	System.out.print("\n Chose:");
 
 	while (!keyboard.hasNextInt()) {
