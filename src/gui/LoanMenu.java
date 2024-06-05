@@ -1,42 +1,41 @@
 package gui;
 
-import java.awt.EventQueue;
+import java.awt.BorderLayout;
+import java.awt.FlowLayout;
 
-import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-public class LoanMenu extends JFrame {
+public class LoanMenu extends JDialog {
 
 	private static final long serialVersionUID = 1L;
-	private JPanel contentPane;
+	private final JPanel contentPanel = new JPanel();
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					LoanMenu frame = new LoanMenu();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+		try {
+			LoanMenu dialog = new LoanMenu();
+			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+			dialog.setVisible(true);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	/**
-	 * Create the frame.
+	 * Create the dialog.
 	 */
 	public LoanMenu() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setTitle("Loan Menu");
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
-		setContentPane(contentPane);
+		getContentPane().setLayout(new BorderLayout());
+		contentPanel.setLayout(new FlowLayout());
+		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
+		getContentPane().add(contentPanel, BorderLayout.CENTER);
 	}
 
 }

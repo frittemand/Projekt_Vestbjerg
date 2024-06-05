@@ -10,10 +10,15 @@ import java.awt.GridBagLayout;
 import javax.swing.JButton;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.Window;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.concurrent.TimeUnit;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MainMenu extends JFrame {
 
@@ -40,6 +45,7 @@ public class MainMenu extends JFrame {
 	 * Create the frame.
 	 */
 	public MainMenu() {
+		setTitle("Main menu");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -61,6 +67,7 @@ public class MainMenu extends JFrame {
 		btnSaleMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				 enableSaleMenu();					
 			}
 		});
 		GridBagConstraints gbc_btnSaleMenu = new GridBagConstraints();
@@ -69,22 +76,26 @@ public class MainMenu extends JFrame {
 		gbc_btnSaleMenu.gridy = 1;
 		panel.add(btnSaleMenu, gbc_btnSaleMenu);
 		
-		JButton btnLendMenu = new JButton("Lend menu");
-		btnLendMenu.addMouseListener(new MouseAdapter() {
+		JButton btnLoanMenu = new JButton("Loan menu");
+		btnLoanMenu.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				enableLoanMenu();
 			}
+
 		});
-		GridBagConstraints gbc_btnLendMenu = new GridBagConstraints();
-		gbc_btnLendMenu.insets = new Insets(0, 0, 5, 0);
-		gbc_btnLendMenu.gridx = 5;
-		gbc_btnLendMenu.gridy = 2;
-		panel.add(btnLendMenu, gbc_btnLendMenu);
+		GridBagConstraints gbc_btnLoanMenu = new GridBagConstraints();
+		gbc_btnLoanMenu.insets = new Insets(0, 0, 5, 0);
+		gbc_btnLoanMenu.gridx = 5;
+		gbc_btnLoanMenu.gridy = 2;
+		panel.add(btnLoanMenu, gbc_btnLoanMenu);
 		
 		JButton btnProducts = new JButton("Products");
 		btnProducts.addMouseListener(new MouseAdapter() {
 			@Override
-			public void mouseClicked(MouseEvent e) {
+			public void mouseClicked(MouseEvent e){
+				//TODO implement method for Products
+				System.out.println("Nothing to see here");
 			}
 		});
 		GridBagConstraints gbc_btnProducts = new GridBagConstraints();
@@ -97,6 +108,8 @@ public class MainMenu extends JFrame {
 		btnGenerateTestData.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				ui.TryMe tryMe = new ui.TryMe();
+				System.out.println("Test data has been generated");
 			}
 		});
 		GridBagConstraints gbc_btnGenerateTestData = new GridBagConstraints();
@@ -104,6 +117,7 @@ public class MainMenu extends JFrame {
 		gbc_btnGenerateTestData.gridx = 5;
 		gbc_btnGenerateTestData.gridy = 4;
 		panel.add(btnGenerateTestData, gbc_btnGenerateTestData);
+		
 		
 		JLabel lblNewLabel = new JLabel("Main menu");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -131,6 +145,15 @@ public class MainMenu extends JFrame {
 		gbc_btnCancel.gridx = 0;
 		gbc_btnCancel.gridy = 0;
 		panel_1.add(btnCancel, gbc_btnCancel);
+	}
+	
+	public void enableSaleMenu() {
+		SaleMenu saleMenu = new SaleMenu();
+		saleMenu.setVisible(true);
+	}
+	private void enableLoanMenu() {
+		LoanMenu loanMenu = new LoanMenu();
+		loanMenu.setVisible(true);
 	}
 
 }
