@@ -10,6 +10,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.BoxLayout;
 import javax.swing.JFormattedTextField;
 import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
+import javax.swing.JTextField;
+import java.awt.Panel;
+import java.awt.Button;
 
 public class SaleMenu extends JDialog {
 
