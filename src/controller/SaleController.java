@@ -22,14 +22,16 @@ public class SaleController {
 	 * 
 	 */
 	public SaleController() {
-		
+		createSale();
 	}
 	/**
 	 * @returns a Sale
 	 * creates a new Sale
 	 */
 	public Sale createSale() {
+		if(sale == null) {
 		this.sale = new Sale();
+		}
 		return sale;
 	}
 
@@ -91,5 +93,9 @@ public class SaleController {
 		return orderLinesOnSale;
 
 	}
+public double getTotalPriceFromSale() {
+	return sale.getTotalPrice();
+}
 
 }
+
