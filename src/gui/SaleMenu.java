@@ -148,6 +148,7 @@ public class SaleMenu extends JDialog {
 			public void mouseClicked(MouseEvent e) {
 				if(pc.findProductByBarcode(Integer.parseInt(tfBarcode.getText())) != null && tfQuantity.getText() != null){
 				addProductToTable();
+				clearTextFields();
 				updateDisplay();
 				}
 				else {
@@ -194,7 +195,7 @@ public class SaleMenu extends JDialog {
 		
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.insertRow(0, new Object[] {p.getItemName() , quantity, p.getCurrentPrice()*quantity});
-		clearTextFields();
+		
 		
 			
 	}
@@ -211,7 +212,7 @@ public class SaleMenu extends JDialog {
 		tfBarcode.setText("");
 		tfQuantity.setText("");
 	}
-private void updateDisplay() {
+private void updateDisplay() { //Opdatere TextField med totalPrice
 	Double d = sl.getTotalPriceFromSale();
  String total = String.valueOf(d);
  totalPrice.setText(total);
