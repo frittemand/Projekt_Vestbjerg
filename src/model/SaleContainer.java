@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class SaleContainer {
 	/**
@@ -38,20 +39,22 @@ public class SaleContainer {
 	public void addSaleToSaleContainer(Sale sale) {
 		sales.add(sale);
 	}
-	
-//	//Searching through the Sale Container using salesID. Returns the sale.
-//	public Sale findSaleBySalesID(int salesID) {
-//		boolean searching = true;
-//		Sale targetSale;
-//		while (searching) {
-//			if (targetSale. == salesID) {
-//				searching = false;
-//			}else {
-//				int result = salesID;
-//				return targetSale;
-//			}
-//		}
-//		return targetSale;
-//	}
+
+	// Searching through the SaleContainer using salesID. Returns the sale.
+	public Sale findSaleBySalesID(int salesID) {
+		Sale foundSale = null;
+		boolean searching = true;
+		Iterator<Sale> it = sales.iterator();
+		while (it.hasNext() && searching) {
+			Sale sale = it.next();
+			if (sale.getSalesID() == salesID) {
+				foundSale = sale;
+				searching = false;
+			} else {
+				System.out.println("Sale not found");
+			}
+		}
+		return foundSale;
+	}
 
 }
