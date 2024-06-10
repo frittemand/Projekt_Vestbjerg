@@ -219,6 +219,8 @@ private void updateDisplay() { //Opdatere TextField med totalPrice
 }
 private void goBack() {
 	dispose();
+	MainMenu mainMenu = new MainMenu();
+	mainMenu.setVisible(true);
 }
 private void finishSale() {
 	FinishSale fs = new FinishSale();
