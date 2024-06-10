@@ -221,7 +221,7 @@ private void goBack() {
 	dispose();
 }
 private void finishSale() {
-	FinishSale fs = new FinishSale();
+	FinishSale fs = new FinishSale(totalPrice.getText());
 	fs.setVisible(true);
 }
 }
