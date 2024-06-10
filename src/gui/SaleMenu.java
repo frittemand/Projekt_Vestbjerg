@@ -75,14 +75,6 @@ public class SaleMenu extends JDialog {
 		JPanel panel = new JPanel();
 		getContentPane().add(panel, BorderLayout.SOUTH);
 		
-		JButton btnNewButton = new JButton("Go back");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				goBack();
-			}
-		});
-		panel.add(btnNewButton);
-		
 		JButton btnNewButton_1 = new JButton("Finish Sale");
 		btnNewButton_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -90,6 +82,14 @@ public class SaleMenu extends JDialog {
 			}
 		});
 		panel.add(btnNewButton_1);
+		
+		JButton btnNewButton = new JButton("Go back");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goBack();
+			}
+		});
+		panel.add(btnNewButton);
 		
 		JPanel panel_1 = new JPanel();
 		getContentPane().add(panel_1, BorderLayout.EAST);
@@ -219,6 +219,8 @@ private void updateDisplay() { //Opdatere TextField med totalPrice
 }
 private void goBack() {
 	dispose();
+	MainMenu mainMenu = new MainMenu();
+	mainMenu.setVisible(true);
 }
 private void finishSale() {
 	FinishSale fs = new FinishSale(totalPrice.getText());
