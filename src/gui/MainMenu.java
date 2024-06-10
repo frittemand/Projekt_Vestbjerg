@@ -104,12 +104,26 @@ public class MainMenu extends JFrame {
 		gbc_btnProducts.gridy = 3;
 		panel.add(btnProducts, gbc_btnProducts);
 		
+		JLabel lblTestDataGenerator = new JLabel("Test data generated!");
+		lblTestDataGenerator.setEnabled(false);
+		GridBagConstraints gbc_lblTestDataGenerator = new GridBagConstraints();
+		gbc_lblTestDataGenerator.insets = new Insets(0, 0, 0, 5);
+		gbc_lblTestDataGenerator.gridx = 1;
+		gbc_lblTestDataGenerator.gridy = 5;
+		panel.add(lblTestDataGenerator, gbc_lblTestDataGenerator);
+		
 		JButton btnGenerateTestData = new JButton("Generate Test Data");
+		
+		btnGenerateTestData.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				lblTestDataGenerator.setEnabled(true);
+			}
+		});
+		
 		btnGenerateTestData.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				ui.TryMe tryMe = new ui.TryMe();
-				System.out.println("Test data has been generated");
 			}
 		});
 		GridBagConstraints gbc_btnGenerateTestData = new GridBagConstraints();
@@ -117,6 +131,7 @@ public class MainMenu extends JFrame {
 		gbc_btnGenerateTestData.gridx = 1;
 		gbc_btnGenerateTestData.gridy = 4;
 		panel.add(btnGenerateTestData, gbc_btnGenerateTestData);
+		
 		
 		
 		JLabel lblNewLabel = new JLabel("Main menu");
