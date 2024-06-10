@@ -57,10 +57,10 @@ public class MainMenu extends JFrame {
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.CENTER);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
 		JButton btnSaleMenu = new JButton("Sale menu");
@@ -71,8 +71,8 @@ public class MainMenu extends JFrame {
 			}
 		});
 		GridBagConstraints gbc_btnSaleMenu = new GridBagConstraints();
-		gbc_btnSaleMenu.insets = new Insets(0, 0, 5, 0);
-		gbc_btnSaleMenu.gridx = 5;
+		gbc_btnSaleMenu.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSaleMenu.gridx = 1;
 		gbc_btnSaleMenu.gridy = 1;
 		panel.add(btnSaleMenu, gbc_btnSaleMenu);
 		
@@ -85,8 +85,8 @@ public class MainMenu extends JFrame {
 
 		});
 		GridBagConstraints gbc_btnLoanMenu = new GridBagConstraints();
-		gbc_btnLoanMenu.insets = new Insets(0, 0, 5, 0);
-		gbc_btnLoanMenu.gridx = 5;
+		gbc_btnLoanMenu.insets = new Insets(0, 0, 5, 5);
+		gbc_btnLoanMenu.gridx = 1;
 		gbc_btnLoanMenu.gridy = 2;
 		panel.add(btnLoanMenu, gbc_btnLoanMenu);
 		
@@ -99,8 +99,8 @@ public class MainMenu extends JFrame {
 			}
 		});
 		GridBagConstraints gbc_btnProducts = new GridBagConstraints();
-		gbc_btnProducts.insets = new Insets(0, 0, 5, 0);
-		gbc_btnProducts.gridx = 5;
+		gbc_btnProducts.insets = new Insets(0, 0, 5, 5);
+		gbc_btnProducts.gridx = 1;
 		gbc_btnProducts.gridy = 3;
 		panel.add(btnProducts, gbc_btnProducts);
 		
@@ -113,8 +113,8 @@ public class MainMenu extends JFrame {
 			}
 		});
 		GridBagConstraints gbc_btnGenerateTestData = new GridBagConstraints();
-		gbc_btnGenerateTestData.insets = new Insets(0, 0, 5, 0);
-		gbc_btnGenerateTestData.gridx = 5;
+		gbc_btnGenerateTestData.insets = new Insets(0, 0, 5, 5);
+		gbc_btnGenerateTestData.gridx = 1;
 		gbc_btnGenerateTestData.gridy = 4;
 		panel.add(btnGenerateTestData, gbc_btnGenerateTestData);
 		
