@@ -127,6 +127,10 @@ public class Sale {
 		
 		return returnOrderlines;
 	}
+	
+	public int getSalesID() {
+		return salesID;
+	}
 }
 
 

@@ -27,13 +27,14 @@ public class FinishSale extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField tfPaidAmount;
 	private JLabel lblTotalPrice;
+	private static String price;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			FinishSale dialog = new FinishSale();
+			FinishSale dialog = new FinishSale(price);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -44,7 +45,8 @@ public class FinishSale extends JDialog {
 	/**
 	 * Create the dialog.
 	 */
-	public FinishSale() {
+	public FinishSale(String price) {
+		this.price = price;
 		getContentPane().setMaximumSize(new Dimension(1000, 1080));
 		setMaximumSize(new Dimension(150, 100));
 		setModal(true);
@@ -75,6 +77,8 @@ public class FinishSale extends JDialog {
 			gbc_lblTotalPrice.gridx = 1;
 			gbc_lblTotalPrice.gridy = 2;
 			contentPanel.add(lblTotalPrice, gbc_lblTotalPrice);
+			setLblTotalPriceText(price + " DKK");
+			
 		}
 		{
 			JLabel lblNewLabel_2 = new JLabel("Enter amount paid");
@@ -134,5 +138,11 @@ public class FinishSale extends JDialog {
 		}
 		}
 
+	public String getLblTotalPriceText() {
+		return lblTotalPrice.getText();
+	}
+	public void setLblTotalPriceText(String text) {
+		lblTotalPrice.setText(text);
+	}
 }
 

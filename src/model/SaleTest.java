@@ -1,7 +1,9 @@
 package model;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import org.junit.jupiter.api.Test;
@@ -19,6 +21,18 @@ class SaleTest {
 		
 		assertTrue(orderline.equals(orderlines.get(0)));
 		
+	}
+	
+	@Test
+	void testAddSaleToSaleContainer() {
+		Sale sale = new Sale();
+		SaleContainer saleContainer = SaleContainer.getInstance();
+		
+		saleContainer.addSaleToSaleContainer(sale);
+		
+		Sale result = saleContainer.findSaleBySalesID(1);
+		
+		assertEquals(sale, result);
 	}
 
 }
