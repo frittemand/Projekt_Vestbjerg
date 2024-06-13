@@ -127,6 +127,9 @@ public class FinishSale extends JDialog {
 				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
+						//Calculating the total amount paid
+						double convertedTemp = (Double.parseDouble(tfPaidAmount.getText()));
+						lblChange.setText(convertedTemp - convertedTotal + " DKK");
 					}
 				});
 				okButton.setActionCommand("OK");
@@ -142,12 +145,10 @@ public class FinishSale extends JDialog {
 			
 		}
 		tfPaidAmount.addKeyListener(new KeyAdapter() {
-			@Override
 			public void keyTyped(KeyEvent e) {
-				double convertedTemp = (Integer.parseInt(tfPaidAmount.getText()));
-				lblChange.setText(convertedTemp - convertedTotal + " DKK");
+				if (e.getKeyCode() == KeyEvent.VK_ENTER) {
 			}
-		});
+			}});
 		}
 	
 	public String getLblTotalPriceText() {
@@ -168,5 +169,6 @@ public class FinishSale extends JDialog {
 	public void setLblChange_1Text(String text_2) {
 		lblChange.setText(text_2);
 	}
+	
 }
 
