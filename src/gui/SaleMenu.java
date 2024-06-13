@@ -223,7 +223,8 @@ private void goBack() {
 	mainMenu.setVisible(true);
 }
 private void finishSale() {
-	FinishSale fs = new FinishSale(totalPrice.getText());
+	Double d = sl.getTotalPriceFromSale();
+	FinishSale fs = new FinishSale(d, sl);
 	fs.setVisible(true);
 }
 }

@@ -20,6 +20,8 @@ import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JTextArea;
 import java.awt.Dimension;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class FinishSale extends JDialog {
 
@@ -27,14 +29,16 @@ public class FinishSale extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField tfPaidAmount;
 	private JLabel lblTotalPrice;
-	private static String price;
+	private static double convertedTotal;
+	private static SaleController sl;
+	private JLabel lblChange;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
 		try {
-			FinishSale dialog = new FinishSale(price);
+			FinishSale dialog = new FinishSale(convertedTotal, sl);
 			dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
 			dialog.setVisible(true);
 		} catch (Exception e) {
@@ -44,9 +48,10 @@ public class FinishSale extends JDialog {
 
 	/**
 	 * Create the dialog.
+	 * @param sl 
 	 */
-	public FinishSale(String price) {
-		this.price = price;
+	public FinishSale(double convertedTotal2, SaleController sl) {
+		this.convertedTotal = convertedTotal;
 		getContentPane().setMaximumSize(new Dimension(1000, 1080));
 		setMaximumSize(new Dimension(150, 100));
 		setModal(true);
@@ -77,7 +82,7 @@ public class FinishSale extends JDialog {
 			gbc_lblTotalPrice.gridx = 1;
 			gbc_lblTotalPrice.gridy = 2;
 			contentPanel.add(lblTotalPrice, gbc_lblTotalPrice);
-			setLblTotalPriceText(price + " DKK");
+			setLblTotalPriceText(convertedTotal2 + " DKK");
 			
 		}
 		{
@@ -107,7 +112,7 @@ public class FinishSale extends JDialog {
 			contentPanel.add(lblChange, gbc_lblChange);
 		}
 		{
-			JLabel lblChange = new JLabel("******");
+			lblChange = new JLabel("******");
 			GridBagConstraints gbc_lblChange = new GridBagConstraints();
 			gbc_lblChange.insets = new Insets(0, 0, 5, 5);
 			gbc_lblChange.gridx = 1;
@@ -136,13 +141,32 @@ public class FinishSale extends JDialog {
 			}
 			
 		}
+		tfPaidAmount.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyTyped(KeyEvent e) {
+				double convertedTemp = (Integer.parseInt(tfPaidAmount.getText()));
+				lblChange.setText(convertedTemp - convertedTotal + " DKK");
+			}
+		});
 		}
-
+	
 	public String getLblTotalPriceText() {
 		return lblTotalPrice.getText();
 	}
 	public void setLblTotalPriceText(String text) {
 		lblTotalPrice.setText(text);
+	}
+	public String getLblChangeText() {
+		return lblChange.getText();
+	}
+	public void setLblChangeText(String text_1) {
+		lblChange.setText(text_1);
+	}
+	public String getLblChange_1Text() {
+		return lblChange.getText();
+	}
+	public void setLblChange_1Text(String text_2) {
+		lblChange.setText(text_2);
 	}
 }
 

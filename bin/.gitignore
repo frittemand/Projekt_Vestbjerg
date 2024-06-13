@@ -1,7 +1,2 @@
-/.classpath
-/.project
-/controller/
-/gui/
-/model/
-/ui/
 /ExtraMethods/
+/gui/
