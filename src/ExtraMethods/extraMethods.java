@@ -16,7 +16,8 @@ public class extraMethods {
 	private LoanController loanController;
 	private ToolLoan loan;
 	
-	
+
+	//This method prints out the receit of the orderline. 
 	public void printReceit() {
 		System.out.println("Vestbjerg Byggecenter");
 		System.out.println("Receipt");
