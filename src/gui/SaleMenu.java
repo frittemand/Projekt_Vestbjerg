@@ -176,7 +176,6 @@ public class SaleMenu extends JDialog {
 			@Override
 			public void keyTyped(KeyEvent e) {
 				checkIfDigit(e);
-				
 			}
 		});
 		
@@ -195,7 +194,6 @@ public class SaleMenu extends JDialog {
 		
 		DefaultTableModel model = (DefaultTableModel) table.getModel();
 		model.insertRow(0, new Object[] {p.getItemName() , quantity, p.getCurrentPrice()*quantity});
-		
 		
 			
 	}
@@ -223,7 +221,8 @@ private void goBack() {
 	mainMenu.setVisible(true);
 }
 private void finishSale() {
-	FinishSale fs = new FinishSale(totalPrice.getText());
+	Double d = sl.getTotalPriceFromSale();
+	FinishSale fs = new FinishSale(d, sl);
 	fs.setVisible(true);
 }
 }
