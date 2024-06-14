@@ -25,15 +25,17 @@ public class LoanMenu extends JDialog {
 	private final JPanel contentPanel = new JPanel();
 	private JTextField textField;
 	private JTextField textField_1;
-	private LoanController lc;
-	private Customer customer;
 	private final JPanel panel = new JPanel();
 	private JTextField textField_2;
-	private int duration;
 	private JLabel lblNewLabel_1;
     private JButton btnNewButton_3;
-
-
+    private JPanel panel_1;
+    
+    private Customer customer;
+    private int duration;
+    private LoanController lc;
+    private LoanTool loanTool;
+    	
 	/**
 	 * Launch the application.
 	 */
@@ -100,14 +102,8 @@ public class LoanMenu extends JDialog {
 					textField_2.setVisible(true);
 					btnNewButton_3.setVisible(true);
 				
-					
-					/*JTextArea textArea = new JTextArea(lc.findCustomerByPhoneNumber(number));
-					GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-					gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-					gbc_lblNewLabel.gridx = 2;
-					gbc_lblNewLabel.gridy = 2;
-					contentPanel.add(textArea, gbc_lblNewLabel);*/
-					
+					System.out.println(customer.getName());
+			
 				} catch (NumberFormatException ex){
 					System.out.println("Invalid input, please type in a number.");
 					textField_1.setText("");
@@ -147,10 +143,12 @@ public class LoanMenu extends JDialog {
 		btnNewButton_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				String text = textField_1.getText();
+				String text = textField_2.getText();
 				try {
 					int number = Integer.parseInt(text);
 					duration = number;
+					System.out.println(duration);
+					System.out.println(customer);
 					
 				} catch (NumberFormatException ex){
 					System.out.println("Invalid input, please type in a number.");
@@ -182,8 +180,17 @@ public class LoanMenu extends JDialog {
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				lc.createLoan(duration);
-				createToolLoan();
+				try {
+					createToolLoan();
+					setLoanTool(duration, customer);
+				}
+				catch (IllegalArgumentException ex){
+					System.out.println("error!");
+					System.out.println("Duration: " + duration);
+					System.out.println("Customer: " + customer);
+				}catch (Exception ex) {
+					ex.printStackTrace();
+				}
 			}
 		});
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
@@ -206,6 +213,8 @@ public class LoanMenu extends JDialog {
 		panel.add(btnNewButton_2, gbc_btnNewButton_2);
 		
 		
+		
+		
 	}
 /*private String customerToString(Customer customer) {
 	
@@ -221,9 +230,21 @@ public class LoanMenu extends JDialog {
 }*/
 	
 	private void createToolLoan() {
-		LoanTool loanTool = new LoanTool();
+		loanTool = new LoanTool();
 		loanTool.setVisible(true);
 	}
+	
+	private void setLoanTool(int d, Customer c) {
+		loanTool.setDuration(d);
+		loanTool.setCustomer(c);
+		//createLoan();
+	}
+	//TODO or maybe not? 
+	/*private void createLoan() {
+		loanTool.createLoan(loanTool.getDuration());
+	}*/
+	
+
 	
 	private void goBack() {
 		dispose();
