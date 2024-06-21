@@ -3,7 +3,7 @@ package gui;
 import controller.LoanController;
 import controller.ToolController;
 import model.Customer;
-
+import model.ToolOrderline;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -21,6 +21,8 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
+
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 import java.awt.event.ActionListener;
@@ -296,6 +298,7 @@ public class LoanMenu extends JDialog {
 			public void mouseClicked(MouseEvent e) {
 				try {
 					finishLoan();
+					endFinishLoan();
 				}
 				catch (IllegalArgumentException ex){
 					System.out.println("error!");
@@ -333,9 +336,30 @@ public class LoanMenu extends JDialog {
 		
 		
 	private void finishLoan() {
-		//TODO
+		System.out.println("Vestbjerg Byggecenter");
+		System.out.println("Receipt");
+		System.out.println("xxxxxxxxxxxxxx");
+		System.out.println("Name: ");
+		System.out.println("Loan items: ");
+		
+		ArrayList<ToolOrderline> printLines = lc.getToolOrderLines();
+		
+		for (ToolOrderline orderline : printLines) {
+		System.out.println("Tool: "+orderline.getToolName());
+		System.out.println(" Copy Number: "+ orderline.getCopy().getCopyNumber());
+		System.out.println(" Day rate: " + orderline.getToolDayRate());
+		System.out.println(" Price for period: "+ orderline.getLinePrice());
+		System.out.println("___");
+		
+		}
+		System.out.println("xxxxxxxxxxxxxx");
+
 	}
 	
+	private void endFinishLoan() {
+		FinishLoan finishLoan = new FinishLoan();
+		finishLoan.setVisible(true);
+	}
 	
 	
 
