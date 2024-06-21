@@ -18,7 +18,7 @@ public class extraMethods {
 	
 
 	//This method prints out the receit of the orderline. 
-	public void printReceit() {
+	public void printReceipt() {
 		System.out.println("Vestbjerg Byggecenter");
 		System.out.println("Receipt");
 		System.out.println("xxxxxxxxxxxxxx");
@@ -29,9 +29,9 @@ public class extraMethods {
 		
 		for (ToolOrderline orderline : printLines) {
 		System.out.println("Tool: "+orderline.getToolName());
-		System.out.println(" Copy Number: "+ orderline.getCopy().getCopyNumber());
-		System.out.println(" Day rate: " + orderline.getToolDayRate());
-		System.out.println(" Price for period: "+ orderline.getLinePrice());
+		System.out.println("Copy Number: "+ orderline.getCopy().getCopyNumber());
+		System.out.println("Day rate: " + orderline.getToolDayRate());
+		System.out.println("Price for period: "+ orderline.getLinePrice());
 		System.out.println("___");
 		
 	}
