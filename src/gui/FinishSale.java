@@ -51,7 +51,7 @@ public class FinishSale extends JDialog {
 	 * @param sl 
 	 */
 	public FinishSale(double convertedTotal2, SaleController sl) {
-		this.convertedTotal = convertedTotal;
+		this.convertedTotal = convertedTotal2;
 		getContentPane().setMaximumSize(new Dimension(1000, 1080));
 		setMaximumSize(new Dimension(150, 100));
 		setModal(true);

@@ -224,5 +224,6 @@ private void finishSale() {
 	Double d = sl.getTotalPriceFromSale();
 	FinishSale fs = new FinishSale(d, sl);
 	fs.setVisible(true);
+	dispose();
 }
 }

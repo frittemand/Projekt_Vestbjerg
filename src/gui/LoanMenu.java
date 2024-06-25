@@ -80,7 +80,7 @@ public class LoanMenu extends JDialog {
 		
 		getContentPane().add(contentPanel, BorderLayout.NORTH);
 		
-		JLabel lblNewLabel = new JLabel("Indtast telefonnummer:");
+		JLabel lblNewLabel = new JLabel("Enter PhoneNr:");
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel.anchor = GridBagConstraints.EAST;
@@ -97,7 +97,7 @@ public class LoanMenu extends JDialog {
 		contentPanel.add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Find kunde");
+		JButton btnNewButton = new JButton("Find customer");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -114,7 +114,7 @@ public class LoanMenu extends JDialog {
 					System.out.println("Invalid input, please type in a number.");
 					textField_1.setText("");
 				} catch (IllegalArgumentException ex) {
-		            System.out.println("Kunde findes ikke");
+		            System.out.println("Customer Not found");
 		            textField_1.setText("");
 				} 
 			}
@@ -125,7 +125,7 @@ public class LoanMenu extends JDialog {
 		gbc_btnNewButton.gridy = 1;
 		contentPanel.add(btnNewButton, gbc_btnNewButton);
 		
-		lblNewLabel_1 = new JLabel("Instast længde på lån");
+		lblNewLabel_1 = new JLabel("Length of loan in days");
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
 		gbc_lblNewLabel_1.anchor = GridBagConstraints.EAST;
@@ -142,7 +142,7 @@ public class LoanMenu extends JDialog {
 		contentPanel.add(textField_1, gbc_textField_1);
 		textField_1.setColumns(10);
 		
-		btnNewButton_3 = new JButton("Bekræft");
+		btnNewButton_3 = new JButton("Confirm");
 		btnNewButton_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -211,7 +211,7 @@ public class LoanMenu extends JDialog {
 		gbc_textField_2.gridy = 0;
 		panel_2.add(textField_2, gbc_textField_2);
 		
-		JButton btnNewButton_4 = new JButton("Tilføj");
+		JButton btnNewButton_4 = new JButton("Add");
 		btnNewButton_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -292,7 +292,7 @@ public class LoanMenu extends JDialog {
 		panel.setLayout(gbl_panel2);
 		getContentPane().add(panel, BorderLayout.SOUTH);
 		
-		JButton btnNewButton_1 = new JButton("Opret lån");
+		JButton btnNewButton_1 = new JButton("Create loan");
 		btnNewButton_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
@@ -313,7 +313,7 @@ public class LoanMenu extends JDialog {
 		gbc_btnNewButton_1.gridy = 4;
 		panel.add(btnNewButton_1, gbc_btnNewButton_1);
 		
-		JButton btnNewButton_2 = new JButton("Gå tilbage");
+		JButton btnNewButton_2 = new JButton("Go back");
 		btnNewButton_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
